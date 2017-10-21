@@ -68,7 +68,7 @@ TLS_CA="/etc/freeDiameter/cacert.pem";
     NETWORK :
     {
       S1AP_IPV4 : "10.1.35.215",
-      S11_IPV4: "10.1.35.215",
+      GTPC_IPV4: "10.1.35.215",
     }
     GUMMEI:
     {
@@ -101,11 +101,8 @@ TLS_CA="/etc/freeDiameter/cacert.pem";
     NETWORK :
     [
       {
-        S11_IPV4: "10.1.35.216",
-        S1U_IPV4: "10.1.35.216",
-
-        S5C_IPV4: "10.1.35.217",
-        S5U_IPV4: "10.1.35.217"
+        GTPC_IPV4: "10.1.35.216",
+        GTPU_IPV4: "10.1.35.216",
       }
     ]
   }
@@ -116,20 +113,16 @@ TLS_CA="/etc/freeDiameter/cacert.pem";
 
     NETWORK :
     {
-      S5C_IPV4: "10.1.35.219",
-      S5U_IPV4: "10.1.35.219"
+      GTPC_IPV4: "10.1.35.219",
+      GTPU_IPV4: "10.1.35.219"
     }
-
-    TUNNEL: 
-    {
-      DEV_NAME: "pgwtun"
-    }
-
-    IP_POOL :
-    {
-      CIDR: 45.45.45.0/24
-    }
-
+    UE_NETWORK:
+    [
+      {
+        IF_NAME: "pgwtun",
+        IPV4_POOL: "45.45.0.1/16"
+      }
+    ]
     DNS :
     {
       PRIMARY_IPV4: "8.8.8.8",
@@ -142,7 +135,7 @@ TLS_CA="/etc/freeDiameter/cacert.pem";
 ## Run MME, SGW, PGW
 
 ```bash
-./mmed
-./sgwd
-./pgwd
+./nextepc-mmed
+./nextepc-sgwd
+./nextepc-pgwd
 ```

@@ -13,12 +13,11 @@ We will run these five nodes that make up NextEPC in a **Single Host**. The reas
 In order to run _MME, HSS, SGW, PGW, and PCRF_ on a **Single Host**, IP address is set by using **IP aliasing**.
 
 ```bash
-sudo ifconfig eth1:hss 10.1.35.214/24 up
-sudo ifconfig eth1:mme 10.1.35.215/24 up
-sudo ifconfig eth1:sgw_s5 10.1.35.216/24 up
-sudo ifconfig eth1:sgw_s11 10.1.35.217/24 up
-sudo ifconfig eth1:pcrf 10.1.35.218/24 up
-sudo ifconfig eth1:pgw 10.1.35.219/24 up
+sudo ifconfig lo:hss 10.1.35.214 netmask 255.255.255.255 up
+sudo ifconfig lo:mme 10.1.35.215 netmask 255.255.255.255 up
+sudo ifconfig lo:sgw 10.1.35.216 netmask 255.255.255.255 up
+sudo ifconfig lo:pcrf 10.1.35.218 netmask 255.255.255.255 up
+sudo ifconfig lo:pgw 10.1.35.219 netmask 255.255.255.255 up
 ```
 
 ## Setup for Data Path
@@ -30,41 +29,6 @@ sudo ip tuntap add name pgwtun mode tun
 sudo ifconfig pgwtun 45.45.0.1/16 up
 ```
 
-## Check Configuration File
-
-A configuration file is located `etc/nextepc.conf` from the installed paths. If you need to change the IP address for a particular problem, you should modify `XXXX_IPV4` field in the configuration file.
-
-For example, if you want the IP aliasing address of *PGW* to be _10.1.35.254_, `PGW.NETWORK.S5C_IPV4` and `PGW_NETWORK.S5U_IPV4` field should be updated like the followings.
-
-```json
-  PGW :
-  {
-    FD_CONF_PATH : "/etc/freeDiameter
-
-    NETWORK :
-    {
-      S5C_IPV4: "10.1.35.254",
-      S5U_IPV4: "10.1.35.254"
-    }
-
-    TUNNEL:
-    {
-      DEV_NAME: "pgwtun"
-    }
-
-    IP_POOL :
-    {
-      CIDR: 45.45.45.0/24
-    }
-
-    DNS :
-    {
-      PRIMARY_IPV4: "8.8.8.8",
-      SECONDARY_IPV4: "4.4.4.4"
-    }
-  }
-```
-
 ## Testing Network Configuration
 
 Once you are done, run the testing script.
@@ -73,3 +37,32 @@ Once you are done, run the testing script.
 ```
 You can see the simulated packet through **Wireshark**.  _(FILTER : s1ap || gtpv2 || diameter)_
 
+## Internet Connection
+
+A configuration file is located `etc/nextepc.conf` from the installed paths. If you need to connect internet, set MME.NETWORK.S1AP_IPV4 and SGW.NETWORK.GTPU_IPV4 to your IP address which is connected with eNodeB. for example, your IP address is 192.168.0.6,
+
+```json
+  MME :
+  {
+    NETWORK :
+    {
+      S1AP_IPV4 : "192.168.0.6",
+      GTPC_IPV4: "10.1.35.215",
+    }
+  }
+  SGW :
+  {
+    NETWORK :
+    [
+      {
+        GTPC_IPV4: "192.168.0.6",
+        GTPU_IPV4: "10.1.35.216",
+      }
+    ]
+  }
+```
+
+And then, you should modify the routing table of the router connected to the PGW.
+```bash
+sudo route add -net 45.45.0.0 192.168.0.6
+```

@@ -34,7 +34,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
     NETWORK :
     {
       S1AP_IPV4 : "10.1.35.215",
-      S11_IPV4: "10.1.35.215",
+      GTPC_IPV4: "10.1.35.215",
     }
     GUMMEI:
     {
@@ -72,18 +72,12 @@ All configuration is same except SGW field. See the configuration file if SGW's 
     NETWORK :
     [
       {
-        S11_IPV4: "10.1.35.216",
-        S1U_IPV4: "10.1.35.216",
-
-        S5C_IPV4: "10.1.35.217",
-        S5U_IPV4: "10.1.35.217"
+        GTPC_IPV4: "10.1.35.216",
+        GTPU_IPV4: "10.1.35.216",
       },
       {
-        S11_IPV4: "10.1.36.216",
-        S1U_IPV4: "10.1.36.216",
-
-        S5C_IPV4: "10.1.36.217",
-        S5U_IPV4: "10.1.36.217"
+        GTPC_IPV4: "10.1.35.217",
+        GTPU_IPV4: "10.1.35.217",
       }
     ]
   }
@@ -94,20 +88,16 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 
     NETWORK :
     {
-      S5C_IPV4: "10.1.35.219",
-      S5U_IPV4: "10.1.35.219"
+      GTPC_IPV4: "10.1.35.219",
+      GTPU_IPV4: "10.1.35.219"
     }
-
-    TUNNEL: 
-    {
-      DEV_NAME: "pgwtun"
-    }
-
-    IP_POOL :
-    {
-      CIDR: 45.45.45.0/24
-    }
-
+    UE_NETWORK:
+    [
+      {
+        IF_NAME: "pgwtun",
+        IPV4_POOL: "45.45.0.1/16"
+      }
+    ]
     DNS :
     {
       PRIMARY_IPV4: "8.8.8.8",
@@ -126,10 +116,10 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 The MME maps to the SGW in a round-robin manner when the UE is attached. Let's run four nodes except two SGWs.
 
 ```bash
-./mmed
-./pgwd
-./hssd
-./pcrfd
+./nextepc-mmed
+./nextepc-pgwd
+./nextepc-hssd
+./nextepc-pcrfd
 ```
 
 ## Host 2 (First SGW)
@@ -150,11 +140,8 @@ SGW does not require Network information for MME and PGW, You only need to speci
     NETWORK :
     [
       {
-        S11_IPV4: "10.1.35.216",
-        S1U_IPV4: "10.1.35.216",
-
-        S5C_IPV4: "10.1.35.217",
-        S5U_IPV4: "10.1.35.217"
+        GTPC_IPV4: "10.1.35.216",
+        GTPU_IPV4: "10.1.35.216",
       }
     ]
   }
@@ -164,7 +151,7 @@ SGW does not require Network information for MME and PGW, You only need to speci
 Run the first SGW.
 
 ```bash
-./sgwd
+./nextepc-sgwd
 ```
 
 ## Host 3 (Second SGW)
@@ -183,11 +170,8 @@ Run the first SGW.
     NETWORK :
     [
       {
-        S11_IPV4: "10.1.36.216",
-        S1U_IPV4: "10.1.36.216",
-
-        S5C_IPV4: "10.1.36.217",
-        S5U_IPV4: "10.1.36.217"
+        GTPC_IPV4: "10.1.35.217",
+        GTPU_IPV4: "10.1.35.217",
       }
     ]
   }
@@ -197,5 +181,5 @@ Run the first SGW.
 Run the second SGW.
 
 ```bash
-./sgwd
+./nextepc-sgwd
 ```

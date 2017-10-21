@@ -34,7 +34,7 @@ All configuration is same except PGW field.
     NETWORK :
     {
       S1AP_IPV4 : "10.1.35.215",
-      S11_IPV4: "10.1.35.215",
+      GTPC_IPV4: "10.1.35.215",
     }
     GUMMEI:
     {
@@ -72,18 +72,12 @@ All configuration is same except PGW field.
     NETWORK :
     [
       {
-        S11_IPV4: "10.1.35.216",
-        S1U_IPV4: "10.1.35.216",
-
-        S5C_IPV4: "10.1.35.217",
-        S5U_IPV4: "10.1.35.217"
+        GTPC_IPV4: "10.1.35.216",
+        GTPU_IPV4: "10.1.35.216",
       },
       {
-        S11_IPV4: "10.1.36.216",
-        S1U_IPV4: "10.1.36.216",
-
-        S5C_IPV4: "10.1.36.217",
-        S5U_IPV4: "10.1.36.217"
+        GTPC_IPV4: "10.1.35.217",
+        GTPU_IPV4: "10.1.35.217",
       }
     ]
   }
@@ -99,10 +93,10 @@ All configuration is same except PGW field.
 The MME maps to the PGW from HSS Subscriber Information. As such, you need to fill PGW IP field of Subscriber Information using Web User Interface.  Let's run four nodes except two PGWs.
 
 ```bash
-./mmed
-./sgwd
-./hssd
-./pcrfd
+./nextepc-mmed
+./nextepc-sgwd
+./nextepc-hssd
+./nextepc-pcrfd
 ```
 
 Note that default PGW can be set in case PGW IP field is omitted in Subscriber Information. In this case, you need to add PGW.NETWORK fleid in the configuration file as shown below.
@@ -113,8 +107,8 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
   {
     NETWORK :
     {
-      S5C_IPV4: "10.1.35.219",
-      S5U_IPV4: "10.1.35.219"
+      GTPC_IPV4: "10.1.35.219",
+      GTPU_IPV4: "10.1.35.219"
     }
   }
 }
@@ -137,20 +131,16 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
 
     NETWORK :
     {
-      S5C_IPV4: "10.1.35.219",
-      S5U_IPV4: "10.1.35.219"
+      GTPC_IPV4: "10.1.35.219",
+      GTPU_IPV4: "10.1.35.219"
     }
-
-    TUNNEL: 
-    {
-      DEV_NAME: "pgwtun"
-    }
-
-    IP_POOL :
-    {
-      CIDR: 45.45.45.0/24
-    }
-
+    UE_NETWORK:
+    [
+      {
+        IF_NAME: "pgwtun",
+        IPV4_POOL: "45.45.0.1/16"
+      }
+    ]
     DNS :
     {
       PRIMARY_IPV4: "8.8.8.8",
@@ -163,10 +153,10 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
 Run the first PGW.
 
 ```bash
-./pgwd
+./nextepc-pgwd
 ```
 
-## Host 3 (Second SGW)
+## Host 3 (Second PGW)
 
 ```json
 {
@@ -183,20 +173,16 @@ Run the first PGW.
 
     NETWORK :
     {
-      S5C_IPV4: "10.1.35.219",
-      S5U_IPV4: "10.1.35.219"
+      GTPC_IPV4: "10.1.35.220",
+      GTPU_IPV4: "10.1.35.220"
     }
-
-    TUNNEL: 
-    {
-      DEV_NAME: "pgwtun"
-    }
-
-    IP_POOL :
-    {
-      CIDR: 45.45.45.0/24
-    }
-
+    UE_NETWORK:
+    [
+      {
+        IF_NAME: "pgwtun",
+        IPV4_POOL: "45.45.0.1/16"
+      }
+    ]
     DNS :
     {
       PRIMARY_IPV4: "8.8.8.8",
@@ -209,5 +195,5 @@ Run the first PGW.
 Run the second PGW.
 
 ```bash
-./pgwd
+./nextepc-pgwd
 ```
