@@ -85,7 +85,7 @@ const Section = styled('section')`
   }
 
   &.odd {    
-    background-image: radial-gradient(circle at 15vw , #f1f1f1 0%, #ccc 100%);
+    background-image: radial-gradient(circle at center, #fff 0%,  #e9e9e9 100%);
     text-shadow: 0 0 1px #eee;
   }
 

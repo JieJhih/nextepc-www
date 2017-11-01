@@ -6,21 +6,18 @@ import Github from './icons/github'
 export default () => {
   return (
     <Footer>
-      <div className={github}>
-        <Github fill="#e4e4e4" width="25" style={{paddingRight: '5px'}}/>
-        <a href="https://github.com/acetcom/nextepc">github.com/acetcom/<span>nextepc</span></a>
-      </div>  
+      <Brand>NextEPC</Brand>
+      <Notice>&copy; 2017 - Sukchan Lee, Jinyoung Park, Jihoon Brandon Lee, and Gwangseok Kim</Notice>
+      <Notice><a href="mailto:brandon.jihoon@gmail.com">Contact Us</a></Notice>
       <BuiltWithLove />
-      <div className={contact}>
-        <a href="mailto:brandon.jihoon@gmail.com">Contact Us</a>
-      </div>  
     </Footer>
   )
 }
 
 const BuiltWithLove = () => (
   <Built>
-    Built with <span>♥︎</span> and <span>nextepc</span> by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>, and <a href="https://github.com/anoveth">/<span>anoveth</span></a>
+    Built with <span>♥︎</span> and nextepc by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>, and <a href="https://github.com/anoveth">/<span>anoveth</span></a>
+    <img src="/static/logo_100.png" width="50" height="18" style={{paddingLeft: '5px'}}/> 
   </Built>
 )
 
@@ -30,63 +27,52 @@ const Footer = styled('footer')`
   flex-direction: column;
   background: #272121;
   height: 120px;
-  padding-top:40px;
+  padding-top: 20px;
+  > * {
+    padding-left: 20px;    
+  }
+`
+
+const Brand = styled('div')`
+  color: #f63;
+  font-size: 1.8em
+`
+
+const Notice = styled('div')`
+  font-size: .8em;
+  color: #564949;
+  padding-bottom: 20px;
+`
+
+const Social = styled('div')`
+  flex: 3;
+  font-size: .8em;
+  background-color: #131010;
+  padding-top: 10px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  
+  a:hover svg {
+    fill: #9a8888;
+  }
 `
 
 const Built = styled('div')`
-  align-self: center;
-  text-align: center;
-  font-size: 14px;
-  padding: 10px;
-  &, a, a:visited, a:hover {
-    color: #eee;
-    text-decoration: none;
-  }
+background-color: #131010;
 
-  span {
-    font-weight: 600;
-    color: #f63;
-    
-  }
-`
-const github = css`
-  align-self: center;
-  flex-grow: 1;
-  text-align: center;
+padding: 10px 0;
+align-self: stretch;
+text-align: center;
+font-size: .75em;
 
-  font-size: 14px;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
+&, a, a:visited, a:hover {
+  color: #564949;
+  text-decoration: none;
+}
 
-  &, a, a:visited, a:hover {
-    color: #eee;
-    text-decoration: none;
-  }
-
-  span {
-    font-weight: 600;
-    color: #f63;
-  }
-`
-
-const contact = css`
-  align-self: center;
-  flex-grow: 1;
-  text-align: center;
-
-  font-size: 14px;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-
-  &, a, a:visited, a:hover {
-    color: #eee;
-    text-decoration: none;
-  }
-
-  span {
-    font-weight: 600;
-    color: #f63;
-  }
+span {
+  font-weight: 600;
+  color: #f63;    
+}
 `
