@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
         <Head>
           <title>NextEPC</title>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+          <link rel='icon' href='/static/favicon.ico'/>
         </Head>
         <body>
           <Main />
