@@ -4,6 +4,11 @@ order: 12
 page: docs
 ---
 
+- 2017-Nov-xx : [v0.2](https://github.com/acetcom/nextepc/archive/v0.2.tar.gz)
+    - Publish Debian Package
+    - Support FreeBSD and Mac OS X
+
+
 - 2017-Oct-11 : [v0.1.1](https://github.com/acetcom/nextepc/archive/v0.1.1.tar.gz)
     - Fix the bug related Mongo C Driver. [`...`](https://github.com/acetcom/nextepc/commit/4245502ae287df9c457621b3f4cccb519c4d4878)
 

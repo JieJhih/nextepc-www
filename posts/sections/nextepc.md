@@ -6,5 +6,5 @@ className: nextepc
 order: 1
 ---
 
-**NextEPC** is Open Source based 3GPP EPC
-MME, HSS, SGW, PGW, and PCRF
+**NextEPC** is a C-language Open Source implementation of the 3GPP Evolved
+Packet Core, i.e. the core network of an LTE network.

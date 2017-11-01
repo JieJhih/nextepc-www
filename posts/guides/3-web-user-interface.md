@@ -1,5 +1,5 @@
 ---
-title: Web Setup
+title: Web User Interface
 order: 3
 page: guides
 ---
@@ -43,6 +43,8 @@ npm run build
 npm run start
 ```
 
+This will start a server available on [http://localhost:3000](http://localhost:3000).
+
 ## Login with default account
 
 Use **Web Browser** to connect it. _http://localhost:3000_
@@ -51,3 +53,14 @@ Use **Web Browser** to connect it. _http://localhost:3000_
   * Password : 1423
 
 Then, you can change your password in _Account_ Menu.
+
+## Register Subscriber Information
+
+There is only one setting for this guide. The _Subscriber Information_ required for **HSS** should be registered in _Mongo DB_. 
+
+  * Go to Subscriber Menu
+  * Click + Button to add Subscriber Information
+  * Fill IMSI, Security(K, OPc, AMF), APN in the Form
+  * Click the `SAVE` Button
+
+Turn on your **eNodeB** and **Mobile**. Check Wireshark!

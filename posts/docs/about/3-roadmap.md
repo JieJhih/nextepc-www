@@ -4,10 +4,9 @@ order: 13
 page: docs
 ---
 
-- v0.2.0
-    - One SGW IP can be used.
-    - Improve network configuration for easy-installation
-    - Support `pkill -HUP epcd`.
+- v0.3.0
+    - Support `pkill -HUP` for `systemctl reload nextepc-xxxd`
+    - Publish other package. (Mac OS X, FreeBSD)
 
 
 - Long-Term Plan

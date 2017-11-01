@@ -5,8 +5,7 @@ import { inCategory } from 'nextein/posts'
 
 export default ({ docs, post }) => {
   const about = docs.filter(inCategory('docs/about'))
-  const install = docs.filter(inCategory('docs/install'))
-  const config = docs.filter(inCategory('docs/config'))
+  const build = docs.filter(inCategory('docs/build'))
   return (
     <Nav>
       {about.length && <Separator>About</Separator>}
@@ -19,19 +18,9 @@ export default ({ docs, post }) => {
           )
         })
       }
-      {install.length && <Separator>Install</Separator>}
+      {build.length && <Separator>Build</Separator>}
       {
-        install.map((doc, idx) => {
-          const { data } = doc
-          const active = post.data.url === data.url
-          return (
-            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
-          )
-        })
-      }      
-      {config.length && <Separator>Config</Separator>}
-      {
-        config.map((doc, idx) => {
+        build.map((doc, idx) => {
           const { data } = doc
           const active = post.data.url === data.url
           return (
