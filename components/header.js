@@ -6,8 +6,7 @@ export default () => {
   return (
     <Header>
       <Main>
-        <Hello>Hello there!</Hello>
-        <Title>I'm <Brand>NextEPC</Brand></Title>
+        <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>
         <Button href="/guides">Guides </Button>
@@ -35,11 +34,6 @@ const Main = styled('div')`
   align-items: center;
 
 `
-const Hello = styled('div')`
-  font-size: 1.5em;
-  color: #999;
-`
-
 const Title = styled('h1')`
   padding: 10px;
   font-weight: 100;

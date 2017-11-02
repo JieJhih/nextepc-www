@@ -6,13 +6,21 @@ page: docs
 
 ## OS X El Capitan 10.11.6
 
-Install TUN/TAP driver
-- You can download it from [http://tuntaposx.sourceforge.net/](http://tuntaposx.sourceforge.net/)
-
 Install the depedencies for building the source
 ```bash
 sudo brew install libusrsctp gnutls libgcrypt libidn mongo-c-driver mongdb
 ```
+
+Compile and install NextEPC.
+```bash
+autoreconf -iv
+./configure --prefix=`pwd`/install
+make -j `nproc`
+sudo make install
+```
+
+Install TUN/TAP driver
+- You can download it from [http://tuntaposx.sourceforge.net/](http://tuntaposx.sourceforge.net/)
 
 Setup your network.
 ```bash
@@ -32,14 +40,6 @@ Run MongoDB server.
 ```bash
 sudo mkdir -p /data/db
 sudo mongod
-```
-
-Compile and install NextEPC.
-```bash
-autoreconf -iv
-./configure --prefix=`pwd`/install
-make -j `nproc`
-sudo make install
 ```
 
 Run NextEPC.

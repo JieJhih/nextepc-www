@@ -1,10 +1,10 @@
 ---
 title: History
-order: 12
+order: 92
 page: docs
 ---
 
-- 2017-Nov-xx : [v0.2](https://github.com/acetcom/nextepc/archive/v0.2.tar.gz)
+- 2017-Nov-02 : [v0.2](https://github.com/acetcom/nextepc/archive/v0.2.tar.gz)
     - Publish Debian Package
     - Support FreeBSD and Mac OS X
 

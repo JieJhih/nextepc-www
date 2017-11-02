@@ -12,7 +12,27 @@ sudo dnf -y install git gcc flex bison autoconf libtool lksctp-tools-devel libid
 ```
 
 Compile and install NextEPC.
-#
-#
+```bash
+autoreconf -iv
+./configure --prefix=`pwd`/install
+make -j `nproc`
+sudo make install
+```
 
+Setup your network.
+```bash
+sudo ip tuntap add name pgwtun mode tun
+sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip link set pgwtun up
+```
 
+Run MongoDB server.
+```bash
+sudo mkdir -p /data/db
+sudo mongod
+```
+
+Run NextEPC.
+```bash
+sudo ./nextepc-epcd
+```

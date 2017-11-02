@@ -17,7 +17,6 @@ export default () => {
 const BuiltWithLove = () => (
   <Built>
     Built with <span>♥︎</span> and nextepc by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>, and <a href="https://github.com/anoveth">/<span>anoveth</span></a>
-    <img src="/static/logo_100.png" width="50" height="18" style={{paddingLeft: '5px'}}/> 
   </Built>
 )
 

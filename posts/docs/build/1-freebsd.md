@@ -12,6 +12,14 @@ sudo pkg install git gcc bison gsed pkgconf autoconf automake libtool
 sudo pkg install gnutls libgcrypt libidn mongo-c-driver mongdb
 ```
 
+Compile and install NextEPC.
+```bash
+autoreconf -iv
+./configure --prefix=`pwd`/install
+make -j `nproc`
+sudo make install
+```
+
 Setup your network.
 ```bash
 sudo ifconfig lo0 alias 127.76.0.1 netmask 255.255.255.255
@@ -30,14 +38,6 @@ Run MongoDB server.
 ```bash
 sudo mkdir -p /data/db
 sudo mongod
-```
-
-Compile and install NextEPC.
-```bash
-autoreconf -iv
-./configure --prefix=`pwd`/install
-make -j `nproc`
-sudo make install
 ```
 
 Run NextEPC.
