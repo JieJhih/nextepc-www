@@ -6,6 +6,7 @@ export default () => {
   return (
     <Header>
       <Main>
+        <img src="/static/logo.png" width="200" height="80"/>
         <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>
@@ -36,7 +37,8 @@ const Main = styled('div')`
 `
 const Title = styled('h1')`
   padding: 10px;
-  font-weight: 100;
+  font-weight: 200;
+  font-size: 1.5em;
   border-bottom: 4px solid #f63;  
 `
 
