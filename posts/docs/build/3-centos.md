@@ -27,6 +27,11 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc  
 ```
 
+Install MongoDB.
+```bash
+sudo yum -y install mongodb-org
+```
+
 Compile and install NextEPC.
 ```bash
 autoreconf -iv
@@ -44,11 +49,16 @@ sudo ip link set pgwtun up
 
 Run MongoDB server.
 ```bash
-sudo mkdir -p /data/db
-sudo mongod
+mkdir -p data/db
+mongod --dbpath data/db
+```
+
+Check Installation
+```markdown
+./test/testepc
 ```
 
 Run NextEPC.
 ```bash
-sudo ./nextepc-epcd
+./nextepc-epcd
 ```

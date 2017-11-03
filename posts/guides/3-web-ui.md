@@ -1,5 +1,5 @@
 ---
-title: Web User Interface
+title: Web UI
 order: 3
 page: guides
 ---

@@ -36,8 +36,13 @@ sudo sysctl -w net.inet.ip.forwarding=1
 
 Run MongoDB server.
 ```bash
-sudo mkdir -p /data/db
-sudo mongod
+mkdir -p data/db
+mongod --dbpath data/db
+```
+
+Check Installation
+```bash
+sudo ./test/testepc
 ```
 
 Run NextEPC.

@@ -4,7 +4,7 @@ order: 2
 page: guides
 ---
 
-## Configuration IP connectivity
+## Configuration of IP connectivity
 
 Configuration files are located `/etc/nextepc` directory. 
 
@@ -42,7 +42,7 @@ And then, modify `/etc/nextepc/sgw.conf` to set your IP address. SGW.NETWORK.GTP
 
 Finally, you should modify the routing table of the router, which is connected to the nextepc installed host. The following command is just a sample. The configuration method for each router will be different.
 ```bash
-sudo route add -net 45.45.0.0 192.168.0.6
+sudo ip route add 45.45.0.0/16 via 192.168.0.6
 ```
 
 ## Update GUMMEI and TAI

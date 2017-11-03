@@ -6,7 +6,7 @@ export default () => {
   return (
     <Header>
       <Main>
-        <img src="/static/logo.png" width="200" height="80"/>
+        <img src="/static/logo_100.png" width="200" height="80" style={{paddingRight: "10px"}}/>
         <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>

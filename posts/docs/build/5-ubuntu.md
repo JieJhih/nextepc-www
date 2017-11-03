@@ -43,13 +43,18 @@ sudo ip link set pgwtun up
 
 Run MongoDB server.
 ```bash
-sudo mkdir -p /data/db
-sudo mongod
+mkdir -p data/db
+mongod --dbpath data/db
+```
+
+Check Installation
+```bash
+./test/testepc
 ```
 
 Run NextEPC.
 ```bash
-sudo ./nextepc-epcd
+./nextepc-epcd
 ```
 
 ## Ubuntu 16.04 (Zenial), 17.04 (Zesty), 17.10 (Artful)
