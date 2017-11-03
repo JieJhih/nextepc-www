@@ -22,13 +22,6 @@ That's it!
 
 ## Uninstall NextEPC
 
-If you would uninstall this package,
-
 ```bash
 sudo apt-get purge nextepc-core
-```
-
-Log directory not empty so not removed.
-```bash
-sudo rm -Rf /var/log/nextepc
 ```
