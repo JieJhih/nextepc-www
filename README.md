@@ -1,7 +1,7 @@
 ## Install Node.js and NPM
 
 ```bash
-sudo apt-get -y install curl
+sudo apt-get -y install curl gnupg
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get -y install nodejs
 ```

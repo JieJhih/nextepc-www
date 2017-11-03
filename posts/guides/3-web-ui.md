@@ -23,6 +23,11 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get -y install nodejs
 ```
 
+## Obtaining the source code
+```bash
+git clone https://github.com/acetcom/nextepc
+```
+
 ## Install the dependencies for building the source
 
 The first step is to use **npm** to install all depedencies.
