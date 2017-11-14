@@ -6,5 +6,7 @@ className: nextepc
 order: 1
 ---
 
-**NextEPC** is a C-language Open Source implementation of the 3GPP Evolved
-Packet Core, i.e. the core network of an LTE network.
+*NextEPC* is an open source implementation of the Evolved
+Packet Core of LTE networks supporting 3GPP Release 13. 
+
+[Questions? Talk to a representative.](brandon.jihoon@gmail.com)

@@ -6,7 +6,7 @@ export default () => {
   return (
     <Header>
       <Main>
-        <img src="/static/logo_100.png" width="200" height="80" style={{paddingRight: "10px"}}/>
+        <img src="/static/logo_300_2.png"/>
         <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>
@@ -35,6 +35,7 @@ const Main = styled('div')`
   align-items: center;
 
 `
+
 const Title = styled('h1')`
   padding: 10px;
   font-weight: 200;
