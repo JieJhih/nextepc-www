@@ -94,10 +94,8 @@ const Section = styled('section')`
     background-image: radial-gradient(circle at center , rgb(68, 60, 60) 0%, #272121 100%);
     text-shadow: 0 0 1px #000;
     
-    > p {
-      text-align: right;
-      color: #e4e4e4;
-    }
+    text-align: right;
+    color: #e4e4e4;
   }
 `
 

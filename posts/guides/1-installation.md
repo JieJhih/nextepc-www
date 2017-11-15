@@ -14,7 +14,7 @@ To get the latest Ubuntu version, please visit the official Ubuntu website: [htt
 
 * ### Install with a Package Manager
 
-The nextepc package is available on the recent versions of Ubuntu.
+The Nextepc package is available on the recent versions of Ubuntu.
 
 ```bash
 sudo add-apt-repository ppa:acetcom/nextepc
@@ -28,3 +28,13 @@ sudo apt-get install nextepc
 ```bash
 sudo apt-get purge nextepc-core
 ```
+
+* ## Debian, CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
+
+For these OS, you should build Nextepc from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](https://nextepc.org/docs/). 
+
+* ### [FreeBSD](https://nextepc.org/docs/build/1-freebsd)
+* ### [Mac OS X](https://nextepc.org/docs/build/2-macosx)
+* ### [CentOS](https://nextepc.org/docs/build/3-centos)
+* ### [Fedora](https://nextepc.org/docs/build/4-fedora)
+* ### [Ubuntu](https://nextepc.org/docs/build/5-ubuntu)

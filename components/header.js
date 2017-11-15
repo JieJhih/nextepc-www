@@ -10,8 +10,8 @@ export default () => {
         <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>
-        <Button href="/guides">Guides </Button>
-        <Secondary href="/docs" inverted>Docs</Secondary>
+        <Button href="/guides">GET STARTED</Button>
+        <Secondary href="/docs" inverted>DOCS</Secondary>
       </Actions>
     </Header>
   )
@@ -31,6 +31,7 @@ const Header = styled('header')`
 
 const Main = styled('div')`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
