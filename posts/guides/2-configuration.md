@@ -99,7 +99,7 @@ TAI:
 }
 ```
 
-The LTE EnodeBs need to be set to use the same values of PLMN and TAC in NextEPC. If you want to change them, please modifiy in `/etc/nextepc/mme.conf` and `etc/nextepc/nextepc.conf`.
+The LTE EnodeBs need to be set to use the same values of PLMN and TAC in NextEPC. If you want to change them, please modifiy in `/etc/nextepc/mme.conf` and `etc/nextepc/sgw.conf`.
 
 
 ### Restarting MME and SGW.

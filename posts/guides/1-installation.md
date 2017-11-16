@@ -23,7 +23,7 @@ sudo apt-get install nextepc
 ```
 This will create a virtual network interface named as *pgwtun*. It is automatically removed by uninstalling NextEPC.
 
-```
+```markdown
 ifconfig pgwtun
 pgwtun    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet addr:45.45.0.1  P-t-P:45.45.0.1  Mask:255.255.0.0
@@ -39,7 +39,7 @@ sudo apt-get purge nextepc-core
 ```
 
 You may need to remove manually /var/log/nextepc unless it is empty.
-```
+```bash
 sudo rm -Rf /var/log/nextepc
 ```
 
@@ -48,8 +48,8 @@ sudo rm -Rf /var/log/nextepc
 
 For these OS, you should build NextEPC from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](https://nextepc.org/docs/). 
 
-* ### [FreeBSD](https://nextepc.org/docs/build/1-freebsd)
-* ### [Mac OS X](https://nextepc.org/docs/build/2-macosx)
-* ### [CentOS](https://nextepc.org/docs/build/3-centos)
-* ### [Fedora](https://nextepc.org/docs/build/4-fedora)
-* ### [Ubuntu](https://nextepc.org/docs/build/5-ubuntu)
+* ### [FreeBSD](/docs/build/1-freebsd)
+* ### [Mac OS X](/docs/build/2-macosx)
+* ### [CentOS](/docs/build/3-centos)
+* ### [Fedora](/docs/build/4-fedora)
+* ### [Ubuntu](/docs/build/5-ubuntu)
