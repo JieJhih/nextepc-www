@@ -8,7 +8,9 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo yum -y install git gcc flex bison make autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel
+sudo yum -y install git gcc flex bison make autoconf libtool \
+     lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel \
+     openssl-devel cyrus-sasl-devel
 ```
 
 Configure EPEL package and install mongo-c-driver. 

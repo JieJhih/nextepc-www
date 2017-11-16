@@ -4,11 +4,11 @@ order: 1
 page: guides
 ---
 
-This post will guide you on how to get installed **NextEPC** with your environment. To date, **NextEPC** has been tested on GNU/Linux distributions(Debian, Ubuntu, CentOS, Fedora, OpenSUSE), FreeBSD, and Mac OS X.
+This post will guide you on how to get installed **NextEPC** with your environment. To date, NextEPC has been tested on GNU/Linux distributions(Debian, Ubuntu, CentOS, Fedora, OpenSUSE), FreeBSD, and Mac OS X.
 
 
 
-* ## Ubuntu
+## Ubuntu
 
 To get the latest Ubuntu version, please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
 
@@ -21,6 +21,15 @@ sudo add-apt-repository ppa:acetcom/nextepc
 sudo apt-get update
 sudo apt-get install nextepc
 ```
+This will create a virtual network interface named as *pgwtun*. It is automatically removed by uninstalling NextEPC.
+
+```
+ifconfig pgwtun
+pgwtun    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          inet addr:45.45.0.1  P-t-P:45.45.0.1  Mask:255.255.0.0
+          ...
+```
+
 
 
 * ### Uninstall NextEPC
@@ -29,9 +38,15 @@ sudo apt-get install nextepc
 sudo apt-get purge nextepc-core
 ```
 
-* ## Debian, CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
+You may need to remove manually /var/log/nextepc unless it is empty.
+```
+sudo rm -Rf /var/log/nextepc
+```
 
-For these OS, you should build Nextepc from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](https://nextepc.org/docs/). 
+
+## Debian, CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
+
+For these OS, you should build NextEPC from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](https://nextepc.org/docs/). 
 
 * ### [FreeBSD](https://nextepc.org/docs/build/1-freebsd)
 * ### [Mac OS X](https://nextepc.org/docs/build/2-macosx)

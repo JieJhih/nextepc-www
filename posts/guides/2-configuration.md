@@ -4,50 +4,78 @@ order: 2
 page: guides
 ---
 
-## Configuration of IP connectivity
+In LTE, there are tons of configurable parameters. This page will guide you to set essential parameters up. The configuration consists of two parts: IP network connectivity and LTE network settings.
 
-Configuration files are located `/etc/nextepc` directory. 
+## 1. IP Connectivity between Network Entities
 
-Let's modify first the `/etc/nextepc/mme.conf` to set your IP address which is connected to eNodeB. For example, if your IP address is 192.168.0.6, both MME.NETWORK.S1AP_IPV4 and SGW.NETWORK.GTPU_IPV4 are changed as follows.
+The minimum requirement of having IP connectvity is to modify the configuration files of MME and SGW. Once NextEPC has been installed, you can find [JSON](https://www.json.org/)-format configuration files in `/etc/nextepc/*.conf`.
+
+Before setting up, please decide a network interface to run NextEPC, and then the IP address of the interface needs to be recorded in the configuration files (Note that the IPv6 support requires v0.3.0 or higher).
+
+### Modification of MME config
+
+Open `/etc/nextepc/mme.conf` file, and find an item in MME &rarr; NETWORK &rarr; S1AP_IPV4. Please set your IP address for S1AP_IPV4 putting double quotes around it.  
+
 ```json
   MME :
   {
     NETWORK :
     {
-      S1AP_IPV4: "192.168.0.6",
+      S1AP_IPV4: "<ip address>",
       GTPC_IPV4: "127.76.0.1"
     }
   },
-  SGW :
-  {
-    NETWORK :
-    {
-      GTPC_IPV4: "127.76.0.2",
-      GTPU_IPV4: "192.168.0.6"
-    }
-  }
 ```
 
-And then, modify `/etc/nextepc/sgw.conf` to set your IP address. SGW.NETWORK.GTPU_IPV4 is updated with 192.168.0.6.
+Similarily, find the next item in SGW &rarr; NETWORK &rarr; GTPU_IPV4 in the same file. Please set your IP address for GTPU_IPV4 putting double quotes around it, again.  
+
 ```json
   SGW :
   {
     NETWORK :
     {
       GTPC_IPV4: "127.76.0.2",
-      GTPU_IPV4: "192.168.0.6"
+      GTPU_IPV4: "<ip address>"
     }
   }
 ```
 
-Finally, you should modify the routing table of the router, which is connected to the nextepc installed host. The following command is just a sample. The configuration method for each router will be different.
-```bash
-sudo ip route add 45.45.0.0/16 via 192.168.0.6
+Save and exit.
+
+
+### Modification of SGW config
+
+Open `/etc/nextepc/sgw.conf` file, and find an item in SGW &rarr; NETWORK &rarr; GTPU_IPV4. Please set your IP address for GTPU_IPV4 putting double quotes around it.
+
+```json
+  SGW :
+  {
+    NETWORK :
+    {
+      GTPC_IPV4: "127.76.0.2",
+      GTPU_IPV4: "<ip address>"
+    }
+  }
 ```
 
-## Update GUMMEI and TAI
+Save and exit.
 
-The followings are the **GUMMEI** and **TAI** of the *MME* currently set to Default. Your *eNodeB* will also have a **PLMN ID** and **TAC** set. Refer to these parameters to change the setting of MME or eNodeB.
+
+### Adding a route for UE to have Internet connectivity
+
+By default, a LTE UE will receive a IP address with the network address of 45.45.0.0/16. If you have a [NAT](https://en.wikipedia.org/wiki/Network_address_translation) router (e.g., wireless router, cable modem, etc), the LTE UE can reach Internet in uplink, but it cannot in downlink. It's because the NAT router has no idea on 45.45.0.0/16, so adding a route is required. Please refer to the user manual to know how to add a static route in your router.
+
+Add a route of 45.45.0.0/16 to go the ip address mentioned above. For example, a command for Linux will be:
+
+```bash
+sudo ip route add 45.45.0.0/16 via <ip address>
+```
+
+## 2. LTE Network Settings
+
+### PLMN and TAC
+
+By default, LTE PLMN and TAC are set as shown in the following:
 
 ```json
 GUMMEI:
@@ -71,56 +99,15 @@ TAI:
 }
 ```
 
-For reference, MME can set several GUMMEI and TAI as **JSON array notation** as follows.
+The LTE EnodeBs need to be set to use the same values of PLMN and TAC in NextEPC. If you want to change them, please modifiy in `/etc/nextepc/mme.conf` and `etc/nextepc/nextepc.conf`.
 
-```json
-GUMMEI:
-[
-  {
-    PLMN_ID : 
-    {
-      MCC : "001",
-      MNC : "01"
-    }
-    MME_GID : 2,
-    MME_CODE : 1
-  },
-  {
-    PLMN_ID : 
-    {
-      MCC : "005",
-      MNC : "05"
-    }
-    MME_GID : 5,
-    MME_CODE : 6
-  },
-]
-TAI:
-[
-  {
-    PLMN_ID :
-    {
-      MCC: "001",
-      MNC: "01",
-    }
-    TAC: 12345
-  },
-  {
-    PLMN_ID :
-    {
-      MCC: "005",
-      MNC: "05",
-    }
-    TAC: 6789
-  }
-]
-```
 
-## Restart MME and SGW.
+### Restarting MME and SGW.
+
+After changing conf files, please restart NextEPC daemons.
 
 ```bash
 systemctl restart nextepc-mmed
 systemctl restart nextepc-sgwd
 ```
 
-Now, S1-Setup is ready! 
