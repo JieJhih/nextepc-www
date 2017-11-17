@@ -1,6 +1,6 @@
 ---
 title: History
-order: 92
+order: 12
 page: docs
 ---
 

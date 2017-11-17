@@ -4,10 +4,20 @@ import styled, { css } from 'react-emotion'
 import { inCategory } from 'nextein/posts'
 
 export default ({ docs, post }) => {
+  const nextepc = docs.filter(inCategory('docs/nextepc'))
   const build = docs.filter(inCategory('docs/build'))
-  const miscellaneous = docs.filter(inCategory('docs/miscellaneous'))
   return (
     <Nav>
+      {nextepc.length && <Separator>NextEPC</Separator>}
+      {
+        nextepc.map((doc, idx) => {
+          const { data } = doc
+          const active = post.data.url === data.url
+          return (
+            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
+          )
+        })
+      }
       {build.length && <Separator>Build</Separator>}
       {
         build.map((doc, idx) => {
@@ -18,16 +28,6 @@ export default ({ docs, post }) => {
           )
         })
       }      
-      {miscellaneous.length && <Separator>Miscellaneous</Separator>}
-      {
-        miscellaneous.map((doc, idx) => {
-          const { data } = doc
-          const active = post.data.url === data.url
-          return (
-            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
-          )
-        })
-      }
     </Nav>
   )
 }

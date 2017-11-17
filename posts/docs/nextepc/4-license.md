@@ -1,6 +1,6 @@
 ---
 title: License
-order: 94
+order: 14
 page: docs
 ---
 
