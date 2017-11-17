@@ -4,18 +4,16 @@ order: 3
 page: guides
 ---
 
-NextEPC is configured with **Mongo DB**, which manages _Subscriber Information_ mainly, and **Configuration File** made in _JSON_ format.
+NextEPC has a number of configuration files corresponding to LTE network entities, which are in [JSON](https://www.json.org/) format. The LTE user subcription information of NextEPC is stored and maintained by [Mongo DB](https://www.mongodb.com/). Configuration files, located in `etc/nextepc/*.conf` can be easily modified using a general text editor such as [vi](http://www.vim.org/) or [emacs](https://www.gnu.org/s/emacs/), while managing the subscriber information requires a [Mongo DB client](https://docs.mongodb.com/ecosystem/tools/).
 
-The configuration file can be modified using a general editor such as vi or emacs, but _Subscriber Information_ can be managed properly using _Mongo DB Client_.
+NextEPC provides an alternative management interface for customers to manage their subscriber information in an easy way, that is **Web User Interface**. The following shows how to install the Web UI of NextEPC.
 
-NextEPC provides **Web User Interface** solely designed to manage _Subscriber Information_ in an easy way without using _Mongo DB Client_. Let's how to install it from now on.
+## 1. Install Node.js and NPM
 
-## Install Node.js and NPM
-
-To get the latest **Node.js** and **NPM** version, you can visit the official **Node.js** website:
+To get the latest [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/), please visit the official Node.js website:
 [https://nodesjs.org/en/download/](https://nodesjs.org/en/download/).
 
-Or, you can install _Node.js_ and _NPM_ on **Ubuntu** as follows:
+Or, you can install [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) if you're using [Ubuntu](https://www.ubuntu.com):
 
 ```bash
 sudo apt-get -y install curl gnupg
@@ -23,49 +21,49 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get -y install nodejs
 ```
 
-## Obtaining the source code
+## 2. Obtain the source code
+
 ```bash
 git clone https://github.com/acetcom/nextepc
 ```
 
-## Install the dependencies for building the source
-
-The first step is to use **npm** to install all depedencies.
+## 3. Install the dependencies to build the code
 
 ```bash
 cd nextepc/webui
 npm install
 ```
 
-## Build Web User Interface
+## 4. Build
 ```bash
 npm run build
 ```
 
-## Running Web Server
+## 5. Running
 
 ```bash
 npm run start
 ```
 
-This will start a server available on [http://localhost:3000](http://localhost:3000).
+Now the web server is running on _http://localhost:3000_.
 
-## Login with default account
+## 6. Login with the default account
 
-Use **Web Browser** to connect it. _http://localhost:3000_
+Open _http://localhost:3000_. Login with **admin**.
 
   * Username : admin
   * Password : 1423
 
-Then, you can change your password in _Account_ Menu.
+Please change the password in _Account_ Menu.
 
-## Register Subscriber Information
+## 7. Register a subscriber
 
-There is only one setting for this guide. The _Subscriber Information_ required for **HSS** should be registered in _Mongo DB_. 
+Using Web UI, you can add a subscriber without a Mongo DB client. 
 
-  * Go to Subscriber Menu
-  * Click + Button to add Subscriber Information
-  * Fill IMSI, Security(K, OPc, AMF), APN in the Form
-  * Click the `SAVE` Button
+  * Go to Subscriber Menu.
+  * Click `+` Button to add a new subscriber.
+  * Fill the IMSI, security context(K, OPc, AMF), and APN of the subscriber.
+  * Click `SAVE` Button
 
-Turn on your **eNodeB** and **Mobile**. Check Wireshark!
+This addition affects immediately NextEPC without restaring any daemon.
+
