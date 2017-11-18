@@ -21,9 +21,8 @@ if (typeof window !== 'undefined') {
 const withDocs = withPostsFilterBy(inCategory('docs', { includeSubCategories: true }))
 
 const Doc = withPost(withDocs( ( { post: current, posts } ) => {
-  const post = current || posts[0]
-  
   posts.sort((a, b) => a.data.order - b.data.order )
+  const post = current || posts[0]
 
   injectGlobal`
     html, body {
