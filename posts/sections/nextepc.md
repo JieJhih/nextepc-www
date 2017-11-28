@@ -9,4 +9,4 @@ order: 1
 *NextEPC* is an open source implementation of the Evolved
 Packet Core of LTE networks supporting 3GPP Release 13. 
 
-[Questions? Talk to a representative.](brandon.jihoon@gmail.com)
+[Questions? Talk to a representative.](mailto:brandon.jihoon@gmail.com)
