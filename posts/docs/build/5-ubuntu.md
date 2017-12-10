@@ -33,7 +33,7 @@ Compile and install NextEPC.
 autoreconf -iv
 ./configure --prefix=`pwd`/install
 make -j `nproc`
-sudo make install
+make install
 ```
 
 Setup your network.
