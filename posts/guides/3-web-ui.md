@@ -4,7 +4,7 @@ order: 3
 page: guides
 ---
 
-NextEPC has a number of configuration files corresponding to LTE network entities, which are in [JSON](https://www.json.org/) format. The LTE user subcription information of NextEPC is stored and maintained by [Mongo DB](https://www.mongodb.com/). Configuration files, located in `etc/nextepc/*.conf` can be easily modified using a general text editor such as [vi](http://www.vim.org/) or [emacs](https://www.gnu.org/s/emacs/), while managing the subscriber information requires a [Mongo DB client](https://docs.mongodb.com/ecosystem/tools/).
+NextEPC has a number of configuration files corresponding to LTE network entities, which are in [YAML](http://yaml.org/) format. The LTE user subcription information of NextEPC is stored and maintained by [Mongo DB](https://www.mongodb.com/). Configuration files, located in `etc/nextepc/*.conf` can be easily modified using a general text editor such as [vi](http://www.vim.org/) or [emacs](https://www.gnu.org/s/emacs/), while managing the subscriber information requires a [Mongo DB client](https://docs.mongodb.com/ecosystem/tools/).
 
 NextEPC provides an alternative management interface for customers to manage their subscriber information in an easy way, that is **Web User Interface**. The following shows how to install the Web UI of NextEPC.
 

@@ -4,6 +4,11 @@ order: 12
 page: docs
 ---
 
+- 2017-Dec-18 : [v0.3.0](https://github.com/acetcom/nextepc/archive/v0.3.0.tar.gz)
+    - IPv6 Support (Linux Only)
+    - Change Configuration File (JSON -> YAML)
+
+
 - 2017-Nov-02 : [v0.2.0](https://github.com/acetcom/nextepc/archive/v0.2.0.tar.gz)
     - Publish Debian Package
     - Support FreeBSD and Mac OS X

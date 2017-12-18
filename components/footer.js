@@ -7,7 +7,7 @@ export default () => {
   return (
     <Footer>
       <Brand>NextEPC</Brand>
-      <Notice>&copy; 2017 - Sukchan Lee, Jinyoung Park, Jihoon Brandon Lee, and Gwangseok Kim</Notice>
+      <Notice>&copy; 2017, 2018  - Sukchan Lee, Jinyoung Park, and Jihoon Brandon Lee</Notice>
       <Notice><a href="mailto:brandon.jihoon@gmail.com">Contact Us</a></Notice>
       <BuiltWithLove />
     </Footer>
@@ -16,7 +16,7 @@ export default () => {
 
 const BuiltWithLove = () => (
   <Built>
-    Built with <span>♥︎</span> and nextepc by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>, and <a href="https://github.com/anoveth">/<span>anoveth</span></a>
+    Built with <span>♥︎</span> and nextepc by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, and <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>
   </Built>
 )
 

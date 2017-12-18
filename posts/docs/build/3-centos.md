@@ -8,9 +8,7 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo yum -y install git gcc flex bison make autoconf libtool \
-     lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel \
-     openssl-devel cyrus-sasl-devel
+sudo yum -y install git gcc flex bison make autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
 ```
 
 Configure EPEL package and install mongo-c-driver. 
@@ -46,6 +44,7 @@ Setup your network.
 ```bash
 sudo ip tuntap add name pgwtun mode tun
 sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip addr add cafe::1/64 dev pgwtun
 sudo ip link set pgwtun up
 ```
 

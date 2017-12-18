@@ -8,8 +8,7 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo pkg install git gcc bison gsed pkgconf autoconf automake libtool
-sudo pkg install gnutls libgcrypt libidn mongo-c-driver mongdb
+sudo pkg install git gcc bison gsed pkgconf autoconf automake libtool mongodb mongo-c-driver gnutls libgcrypt libidn libyaml
 ```
 
 Compile and install NextEPC.
@@ -22,11 +21,10 @@ sudo make install
 
 Setup your network.
 ```bash
-sudo ifconfig lo0 alias 127.76.0.1 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.2 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.3 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.4 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.5 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.2 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.3 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.4 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.5 netmask 255.255.255.255
 ```
 
 Enable IP forwarding

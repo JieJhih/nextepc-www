@@ -8,10 +8,10 @@ page: docs
 ## Copyright and License
 
 #
-Copyright © 2017 - Sukchan Lee, Jinyoung Park, Jihoon Brandon Lee, and Gwangseok Kim  
+Copyright © 2017, 2018 - Sukchan Lee, Jinyoung Park, and Jihoon Brandon Lee  
 All rights reserved.  
 #
-The source code of **NextEPC** is licensed under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. See [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or LICENSE included in the source code package itself. The information detailed here is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+The source code of **NextEPC** is licensed under the terms of the GNU Affero General Public License v3.0 as published by the Free Software Foundation. See [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or LICENSE included in the source code package itself. The information detailed here is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 ## Linking with the followings
 
@@ -78,8 +78,8 @@ The source code of **NextEPC** is licensed under the terms of the GNU General Pu
     - [lib/ipfw](https://github.com/acetcom/nextepc/tree/master/lib/ipfw) based on this project.
 
 
-- [JSMN](http://zserge.com/jsmn.html)
-    - Copyright (c) 2010 Serge A. Zaitsev
+- [libyaml](https://pyyaml.org/wiki/LibYAML)
+    - Copyright (c) 2006-2016 Kirill Simonov
     - License : [MIT](https://opensource.org/licenses/mit-license.php)
 
 

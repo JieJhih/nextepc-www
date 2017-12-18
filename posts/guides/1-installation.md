@@ -27,6 +27,8 @@ This will create a virtual network interface named as *pgwtun*. It is automatica
 ifconfig pgwtun
 pgwtun    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet addr:45.45.0.1  P-t-P:45.45.0.1  Mask:255.255.0.0
+          inet6 addr: fe80::50f6:182c:5aa3:16bb/64 Scope:Link
+          inet6 addr: cafe::1/64 Scope:Global
           ...
 ```
 

@@ -8,7 +8,7 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo brew install libusrsctp gnutls libgcrypt libidn mongo-c-driver mongdb
+sudo brew install mongodb mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml
 ```
 
 Compile and install NextEPC.
@@ -24,11 +24,10 @@ Install TUN/TAP driver
 
 Setup your network.
 ```bash
-sudo ifconfig lo0 alias 127.76.0.1 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.2 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.3 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.4 netmask 255.255.255.255
-sudo ifconfig lo0 alias 127.76.0.5 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.2 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.3 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.4 netmask 255.255.255.255
+sudo ifconfig lo0 alias 127.0.0.5 netmask 255.255.255.255
 ```
 
 Enable IP forwarding.

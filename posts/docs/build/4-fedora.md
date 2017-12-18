@@ -8,9 +8,7 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo dnf -y install git gcc flex bison autoconf libtool lksctp-tools-devel \
-     libidn-devel gnutls-devel libgcrypt-devel openssl-devel \
-     cyrus-sasl-devel mongo-c-driver-devel mongodb-server
+sudo dnf -y install git gcc flex bison autoconf libtool mongodb-server mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
 ```
 
 Compile and install NextEPC.
@@ -25,6 +23,7 @@ Setup your network.
 ```bash
 sudo ip tuntap add name pgwtun mode tun
 sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip addr add cafe::1/64 dev pgwtun
 sudo ip link set pgwtun up
 ```
 

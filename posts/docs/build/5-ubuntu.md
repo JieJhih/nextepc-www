@@ -12,9 +12,7 @@ _Ubuntu 14.04_ release does not have the **Mongo C Driver** provided by [http://
 First, install the following packages except Mongo C Driver.
 
 ```bash
-sudo apt-get -y install git gcc flex bison make autoconf \ 
-     libtool pkg-config libsctp-dev libssl-dev libgnutls-dev \
-     libidn11-dev mongodb
+sudo apt-get -y install git gcc flex bison make autoconf libtool pkg-config mongodb libsctp-dev libssl-dev libgnutls-dev libidn11-dev libyaml-dev
 ```
 
 And then, compile and install Mongo C Driver like the followings.
@@ -40,6 +38,7 @@ Setup your network.
 ```bash
 sudo ip tuntap add name pgwtun mode tun
 sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip addr add cafe::1/16 dev pgwtun
 sudo ip link set pgwtun up
 ```
 
@@ -62,9 +61,7 @@ Run NextEPC.
 ## Ubuntu 16.04 (Zenial), 17.04 (Zesty), 17.10 (Artful)
 
 ```bash
-sudo apt-get -y install autotools-dev pkg-config git flex bison \
-     libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev \
-     libmongoc-dev libbson-dev mongodb
+sudo apt-get -y install autotools-dev pkg-config git flex bison mongodb libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
 ```
 
 Other sequence is same.
