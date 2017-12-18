@@ -8,7 +8,7 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo dnf -y install git gcc flex bison autoconf libtool mongodb-server mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
+sudo dnf -y install git gcc flex bison autoconf libtool mongodb-server mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel snappy-devel libyaml-devel
 ```
 
 Compile and install NextEPC.
