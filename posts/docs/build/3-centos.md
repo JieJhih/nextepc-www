@@ -8,7 +8,19 @@ page: docs
 
 Install the depedencies for building the source
 ```bash
-sudo yum -y install git gcc flex bison make autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
+sudo yum -y install git flex bison autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
+```
+
+Configure Developer Toolset and install gcc/make
+```bash
+sudo yum -y install centos-release-scl
+sudo yum -y install devtoolset-7-gcc devtoolset-7-make
+```
+
+Start using software collections
+```bash
+scl enable devtoolset-7 bash
+gcc --version
 ```
 
 Configure EPEL package and install mongo-c-driver. 
