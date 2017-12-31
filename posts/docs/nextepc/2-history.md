@@ -4,6 +4,10 @@ order: 12
 page: docs
 ---
 
+- 2017-Dec-31 : [v0.3.1](https://github.com/acetcom/nextepc/archive/v0.3.1.tar.gz)
+    - Add Authentication Synch Failure ([Issue #11](https://github.com/acetcom/nextepc/issues/11) from [`eric80s`](https://github.com/eric80s))
+
+
 - 2017-Dec-18 : [v0.3.0](https://github.com/acetcom/nextepc/archive/v0.3.0.tar.gz)
     - IPv6 Support (Linux Only)
     - Change Configuration File (JSON -> YAML)
