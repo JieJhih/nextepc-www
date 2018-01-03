@@ -6,6 +6,7 @@ page: docs
 
 ## CentOS 7
 
+#
 Install the depedencies for building the source
 ```bash
 sudo yum -y install git flex bison autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel

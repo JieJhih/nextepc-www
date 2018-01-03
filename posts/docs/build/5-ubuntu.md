@@ -4,8 +4,50 @@ order: 25
 page: docs
 ---
 
+## Ubuntu 16.04 (Zenial), 17.04 (Zesty), 17.10 (Artful)
+
+#
+Install the depedencies for building the source
+```bash
+sudo apt-get -y install autotools-dev pkg-config git flex bison mongodb libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
+```
+
+Compile and install NextEPC.
+```bash
+autoreconf -iv
+./configure --prefix=`pwd`/install
+make -j `nproc`
+make install
+```
+
+Setup your network.
+```bash
+sudo ip tuntap add name pgwtun mode tun
+sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip addr add cafe::1/16 dev pgwtun
+sudo ip link set pgwtun up
+```
+
+Run MongoDB server.
+```bash
+mkdir -p data/db
+mongod --dbpath data/db
+```
+
+Check Installation
+```bash
+./test/testepc
+```
+
+Run NextEPC.
+```bash
+./nextepc-epcd
+```
+
+
 ## Ubuntu 14.04 (Trusty)
 
+#
 _Ubuntu 14.04_ release does not have the **Mongo C Driver** provided by [http://mongoc.org](https://mongoc.org). You have to compile and install it manually
 
 #
@@ -58,10 +100,3 @@ Run NextEPC.
 ./nextepc-epcd
 ```
 
-## Ubuntu 16.04 (Zenial), 17.04 (Zesty), 17.10 (Artful)
-
-```bash
-sudo apt-get -y install autotools-dev pkg-config git flex bison mongodb libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
-```
-
-Other sequence is same.
