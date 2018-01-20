@@ -9,7 +9,7 @@ page: docs
 #
 Install the depedencies for building the source
 ```bash
-sudo apt-get -y install autotools-dev pkg-config git flex bison mongodb libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
+sudo apt-get -y install autoconf libtool gcc pkg-config git flex bison mongodb libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
 ```
 
 Compile and install NextEPC.
