@@ -39,6 +39,11 @@ Check Installation
 ./test/testepc
 ```
 
+Update Configuration(e.g LTE PLMN and TAC)
+```bash
+vi `pwd`/install/etc/nextepc/nextepc.conf
+```
+
 Run NextEPC.
 ```bash
 ./nextepc-epcd
@@ -93,6 +98,11 @@ mongod --dbpath data/db
 Check Installation
 ```bash
 ./test/testepc
+```
+
+Update Configuration (e.g LTE PLMN and TAC)
+```bash
+vi `pwd`/install/etc/nextepc/nextepc.conf
 ```
 
 Run NextEPC.

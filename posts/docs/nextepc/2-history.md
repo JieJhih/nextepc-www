@@ -4,6 +4,11 @@ order: 12
 page: docs
 ---
 
+- 2018-Jan-24 : [v0.3.2](https://github.com/acetcom/nextepc/archive/v0.3.2.tar.gz)
+    - VoLTE Support
+    - Fix the BUG for EPS attach type of Attach accept([Issue #12](https://github.com/acetcom/nextepc/issues/12) from [`pcminitech`](https://github.com/pcminitech))
+
+
 - 2017-Dec-31 : [v0.3.1](https://github.com/acetcom/nextepc/archive/v0.3.1.tar.gz)
     - Add Authentication Synch Failure ([Issue #11](https://github.com/acetcom/nextepc/issues/11) from [`eric80s`](https://github.com/eric80s))
 

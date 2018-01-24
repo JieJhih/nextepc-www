@@ -9,7 +9,7 @@ page: docs
 #
 Install the depedencies for building the source
 ```bash
-sudo dnf -y install git gcc flex bison autoconf libtool mongodb-server mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel snappy-devel libyaml-devel
+sudo dnf -y install git gcc flex bison autoconf libtool mongodb-server mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel snappy-devel libyaml-devel iproute
 ```
 
 Compile and install NextEPC.
@@ -37,6 +37,11 @@ mongod --dbpath data/db
 Check Installation
 ```bash
 ./test/testepc
+```
+
+Update Configuration (e.g LTE PLMN and TAC)
+```bash
+vi `pwd`/install/etc/nextepc/nextepc.conf
 ```
 
 Run NextEPC.

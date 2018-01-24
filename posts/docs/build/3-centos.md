@@ -72,6 +72,11 @@ Check Installation
 ./test/testepc
 ```
 
+Update Configuration (e.g LTE PLMN and TAC)
+```bash
+vi `pwd`/install/etc/nextepc/nextepc.conf
+```
+
 Run NextEPC.
 ```bash
 ./nextepc-epcd

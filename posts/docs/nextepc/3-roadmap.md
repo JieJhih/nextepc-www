@@ -5,9 +5,8 @@ page: docs
 ---
 
 - v0.4.0 : 2018-Feb
-    - Inter-Operability with IMS
-    - SRVCC
-    - XOR, TUAK (We need `Attach pcapng` with K, AMF, TOP, TOPc)
+    - CS Fallback, SRVCC
+    - XOR, TUAK
 
 
 - Plan
