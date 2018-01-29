@@ -5,7 +5,6 @@ page: docs
 ---
 
 - 2018-Jan-24 : [v0.3.2](https://github.com/acetcom/nextepc/archive/v0.3.2.tar.gz)
-    - VoLTE Support (Need to test with IMS)
     - Fix the BUG for EPS attach type of Attach accept([Issue #12](https://github.com/acetcom/nextepc/issues/12) from [`pcminitech`](https://github.com/pcminitech))
 
 
