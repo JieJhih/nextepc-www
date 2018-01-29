@@ -4,7 +4,8 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-Feb
+- v0.4.0 : 2018-Mar
+    - VoLTE (Need to test with IMS)
     - CS Fallback, SRVCC
     - XOR, TUAK
 
