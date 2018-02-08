@@ -85,7 +85,7 @@ Setup your network.
 ```bash
 sudo ip tuntap add name pgwtun mode tun
 sudo ip addr add 45.45.0.1/16 dev pgwtun
-sudo ip addr add cafe::1/16 dev pgwtun
+sudo ip addr add cafe::1/64 dev pgwtun
 sudo ip link set pgwtun up
 ```
 
