@@ -81,7 +81,7 @@ install() {
 
 PRE_INSTALL_PKGS=""
 
-if [ ! -x /usr/bin/mongodb ]; then
+if [ ! -x /usr/bin/mongod ]; then
     PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} mongodb"
 fi
 
