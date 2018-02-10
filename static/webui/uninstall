@@ -15,10 +15,12 @@ exec_cmd_nobail() {
 }
 
 uninstall() {
-exec_cmd_nobail "sudo systemctl stop nextepc-webui"
-exec_cmd_nobail "sudo systemctl disable nextepc-webui"
+exec_cmd_nobail "systemctl stop nextepc-webui"
+exec_cmd_nobail "systemctl disable nextepc-webui"
 exec_cmd_nobail "rm -f /lib/systemd/system/nextepc-webui.service"
 exec_cmd_nobail "rm -rf /usr/lib/node_modules/nextepc"
+
+exec_cmd_nobail "systemctl daemon-reload"
 }
 
 ## Defer setup until we have the complete script
