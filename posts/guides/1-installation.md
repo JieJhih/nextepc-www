@@ -12,14 +12,15 @@ This post will guide you on how to get installed **NextEPC** with your environme
 
 To get the latest Ubuntu version, please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
 
-* ### Install with a Package Manager
+* ### MME, SGW, PGW, HSS, and PCRF
 
-The Nextepc package is available on the recent versions of Ubuntu.
+The NextEPC package is available on the recent versions of Ubuntu.
 
 ```bash
+sudo apt-get -y install software-properties-common
 sudo add-apt-repository ppa:acetcom/nextepc
 sudo apt-get update
-sudo apt-get install nextepc
+sudo apt-get -y install nextepc
 ```
 This will create a virtual network interface named as *pgwtun*. It is automatically removed by uninstalling NextEPC.
 
@@ -32,12 +33,43 @@ pgwtun    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
           ...
 ```
 
+The NextEPC service is registered in `systemd` environment, and is started automatically during the installation phase. The service names are *nextepc-mmed*, *nextepc-sgwd*, *nextepc-pgwd*, *nextepc-hssd*, and *nextepc-pcrfd*. You can use the `systemctl` command to control specific services.
+
+```bash
+sudo systemctl status nextepc-mmed (Check the aliveness)
+sudo systemctl stop nextepc-mmed (Stop the service)
+sudo systemctl disable nextepc-mmed (Will not be started after rebooting)
+sudo systemctl enable nextepc-mmed (Will be started after rebooting)
+sudo systemctl start nextepc-mmed (Start service)
+sudo systemctl restart nextepc-mmed (Stop and Start)
+```
+
+
+* ### Web User Interface
+
+The LTE user subcription information of NextEPC is stored and maintained by [Mongo DB](https://www.mongodb.com/). To manage the subscriber information, [Mongo DB client](https://docs.mongodb.com/ecosystem/tools/) is required, and this client can connect to the DB URI [_mongodb://localhost/nextepc_]. 
+
+NextEPC provides an alternative management interface for customers to manage their subscriber information in an easy way, that is **Web User Interface**. The following shows how to install the Web UI of NextEPC.
+
+```bash
+sudo apt-get -y install curl
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL http://nextepc.org/static/webui/install | sudo -E bash -
+```
+
+The service name is *nextepc-webui*. You must run it manually after installation. And then, the web server will be running on _http://localhost:3000_.
+
+```bash
+sudo systemctl start nextepc-webui
+```
+
 
 
 * ### Uninstall NextEPC
 
 ```bash
-sudo apt-get purge nextepc-core
+curl -sL http://nextepc.org/static/webui/uninstall | sudo -E bash -
+sudo apt-get purge nextepc*
 ```
 
 You may need to remove manually /var/log/nextepc unless it is empty.
@@ -46,7 +78,7 @@ sudo rm -Rf /var/log/nextepc
 ```
 
 
-## Debian, CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
+## CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
 
 For these OS, you should build NextEPC from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](http://nextepc.org/docs/). 
 
@@ -54,4 +86,3 @@ For these OS, you should build NextEPC from the code. First clone this [reposito
 * ### [Mac OS X](http://nextepc.org/docs/build/2-macosx)
 * ### [CentOS](http://nextepc.org/docs/build/3-centos)
 * ### [Fedora](http://nextepc.org/docs/build/4-fedora)
-* ### [Ubuntu](http://nextepc.org/docs/build/5-ubuntu)
