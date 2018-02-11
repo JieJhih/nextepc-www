@@ -10,7 +10,7 @@
 #
 
 PACKAGE="nextepc"
-VERSION="0.3.2"
+VERSION="0.3.3"
 
 print_status() {
     echo
@@ -85,6 +85,10 @@ if [ ! -x /usr/bin/mongod ]; then
     PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} mongodb"
 fi
 
+if [ ! -x /usr/bin/node ] && [ ! -x /usr/bin/wget ]; then
+    PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} nodejs"
+fi
+
 if [ ! -x /usr/bin/curl ] && [ ! -x /usr/bin/wget ]; then
     PRE_INSTALL_PKGS="${PRE_INSTALL_PKGS} curl"
 fi
@@ -97,12 +101,6 @@ if [ "X${PRE_INSTALL_PKGS}" != "X" ]; then
     # This next command needs to be redirected to /dev/null or the script will bork
     # in some environments
     exec_cmd "apt-get install -y${PRE_INSTALL_PKGS} > /dev/null 2>&1"
-fi
-
-if [ ! -x /usr/bin/node ]; then
-    print_status "Setup NodeSource Repository..."
-    exec_cmd 'curl -sL https://deb.nodesource.com/setup_8.x | bash -'
-    exec_cmd 'apt-get -y install nodejs'
 fi
 
 uninstall
@@ -150,3 +148,4 @@ exec_cmd "rm -rf ./${PACKAGE}-${VERSION}"
 
 ## Defer setup until we have the complete script
 install
+print_bold "Run the NextEPC-WebUI" "sudo systemctl start nextepc-webui"
