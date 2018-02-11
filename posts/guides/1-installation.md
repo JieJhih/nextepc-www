@@ -82,7 +82,7 @@ sudo rm -Rf /var/log/nextepc
 
 For these OS, you should build NextEPC from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](http://nextepc.org/docs/). 
 
-* ### [FreeBSD](http://nextepc.org/docs/build/1-freebsd)
-* ### [Mac OS X](http://nextepc.org/docs/build/2-macosx)
-* ### [CentOS](http://nextepc.org/docs/build/3-centos)
-* ### [Fedora](http://nextepc.org/docs/build/4-fedora)
+* ### [CentOS](http://nextepc.org/docs/build/1-centos)
+* ### [Fedora](http://nextepc.org/docs/build/2-fedora)
+* ### [FreeBSD](http://nextepc.org/docs/build/3-freebsd)
+* ### [Mac OS X](http://nextepc.org/docs/build/4-macosx)

@@ -4,7 +4,7 @@ order: 2
 page: guides
 ---
 
-Since NextEPC is an open source project, you can build and use this program directly from source code. If you have already installed it with a package manager, or are not interested in learning the source code, you can skip this guide and proceed to the next [configuration guide](http://nextepc.org/guides/2-configuration). 
+Since NextEPC is an open source project, you can build and use this program directly from source code. If you have already installed it with a package manager, or are not interested in learning the source code, you can skip this guide and proceed to the next [configuration guide](http://nextepc.org/guides/3-configuration). 
 
 Note that this guide is based on Ubuntu 16.04.3(Zenial) Distribution.
 
