@@ -1,43 +1,44 @@
 ---
-title: CentOS
-order: 23
+title: Fedora
+order: 22
 page: docs
 ---
 
-Note that this guide is based on CentOS 7 Distribution.
+This guide is based on Fedora 27 Distribution.
 
 ## Prerequisites
 
-Create the MongoDB repository file.
-```bash
-sudo sh -c 'cat << EOF > /etc/yum.repos.d/mongodb-org-3.4.repo
-[mongodb-org-3.4]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.4/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
-EOF'
-```
-
 Install Mongo DB with Package Manager.
 ```bash
-sudo yum -y install mongodb-org
-sudo systemctl start mongod (if '/usr/bin/mongod' is not running)
+sudo dnf -y install mongodb-server
+```
+
+Run MongoDB server.
+```bash
+mkdir -p data/db
+mongod --dbpath data/db
 ```
 
 Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you should change the kernel configuration.
 ```bash
-sysctl -n net.ipv6.conf.all.disable_ipv6
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 (if the output is 0 and IPv6 is enabled, skip the followings)
-sudo sh -c "echo 'net.ipv6.conf.all.disable_ipv6=0' >> /etc/sysctl.d/30-nextepc.conf"
-sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
+sudo sh -c "echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6"
+```
+
+To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
+
+```bash
+ls -al /dev/net/tun
+crw-rw---- 1 root 28 10, 200 Feb 11 05:13 /dev/net/tun
+sudo dnf -y install udev
+sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not running)
 ```
 
 Setup your network.
 ```bash
-sudo yum -y install iproute
+sudo dnf -y install iproute
 sudo ip tuntap add name pgwtun mode tun
 sudo ip addr add 45.45.0.1/16 dev pgwtun
 sudo ip addr add cafe::1/64 dev pgwtun
@@ -49,25 +50,7 @@ ip link show
 
 Install the depedencies for building the source
 ```bash
-sudo yum -y install git flex bison autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
-```
-
-Configure Developer Toolset and install gcc/make
-```bash
-sudo yum -y install centos-release-scl
-sudo yum -y install devtoolset-7-gcc devtoolset-7-make
-```
-
-Start using software collections
-```bash
-scl enable devtoolset-7 bash
-gcc --version
-```
-
-Configure EPEL package and install mongo-c-driver. 
-```bash
-sudo yum -y install epel-release
-sudo yum -y install mongo-c-driver-devel
+sudo dnf -y install git gcc flex bison autoconf libtool mongo-c-driver-devel lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel snappy-devel libyaml-devel
 ```
 
 Git clone and compile
@@ -121,8 +104,7 @@ acetcom@nextepc:~/nextepc$ ./nextepc-epcd
 Install [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) with a package manager.
 
 ```bash
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
-sudo yum -y install nodejs
+sudo dnf -y install nodejs
 ```
 
 Install the dependencies to run WebUI
@@ -139,4 +121,3 @@ acetcom@nextepc:~/nextepc/webui$ npm run dev
 ```
 
 Now the web server is running on _http://localhost:3000_.
-

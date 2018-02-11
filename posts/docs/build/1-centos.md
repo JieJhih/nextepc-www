@@ -1,17 +1,29 @@
 ---
-title: Ubuntu (Trusty)
-order: 25
+title: CentOS
+order: 21
 page: docs
 ---
 
-This guide is based on Ubuntu 14.04 (Trusty)
+This guide is based on CentOS 7 Distribution.
 
 ## Prerequisites
 
+Create the MongoDB repository file.
+```bash
+sudo sh -c 'cat << EOF > /etc/yum.repos.d/mongodb-org-3.4.repo
+[mongodb-org-3.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+EOF'
+```
+
 Install Mongo DB with Package Manager.
 ```bash
-sudo apt-get -y install mongodb
-sudo systemctl start mongodb (if '/usr/bin/mongod' is not running)
+sudo yum -y install mongodb-org
+sudo systemctl start mongod (if '/usr/bin/mongod' is not running)
 ```
 
 Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you should change the kernel configuration.
@@ -23,55 +35,39 @@ sudo sh -c "echo 'net.ipv6.conf.all.disable_ipv6=0' >> /etc/sysctl.d/30-nextepc.
 sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
 ```
 
-To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
-
+Setup your network.
 ```bash
-ls -al /dev/net/tun
-crw-rw---- 1 root 28 10, 200 Feb 11 05:13 /dev/net/tun
-sudo apt-get install udev
-sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not running)
-```
-
-Create the TUN configuration file.
-```bash
-sudo sh -c "cat << EOF > /etc/systemd/network/99-nextepc.netdev
-[NetDev]
-Name=pgwtun
-Kind=tun
-EOF"
-sudo sh -c "cat << EOF > /etc/systemd/network/99-nextepc.network
-[Match]
-Name=pgwtun
-[Network]
-Address=45.45.0.1/16
-Address=cafe::1/64
-EOF"
-```
-
-Now register the TUN device in `systemd-networkd` as shown below.
-```bash
-sudo systemctl enable systemd-networkd
-sudo systemctl restart systemd-networkd
-sudo apt-get -y install net-tools
-ifconfig pgwtun
+sudo yum -y install iproute
+sudo ip tuntap add name pgwtun mode tun
+sudo ip addr add 45.45.0.1/16 dev pgwtun
+sudo ip addr add cafe::1/64 dev pgwtun
+sudo ip link set pgwtun up
+ip link show
 ```
 
 ## MME, SGW, PGW, HSS, and PCRF
 
 Install the depedencies for building the source
 ```bash
-sudo apt-get -y install git gcc flex bison make autoconf libtool pkg-config libsctp-dev libssl-dev libgnutls-dev libidn11-dev libyaml-dev
+sudo yum -y install git flex bison autoconf libtool lksctp-tools-devel libidn-devel gnutls-devel libgcrypt-devel openssl-devel cyrus-sasl-devel libyaml-devel
 ```
 
-And then, compile and install Mongo C Driver like the followings.
+Configure Developer Toolset and install gcc/make
 ```bash
-sudo apt-get -y install g++ libsasl2-dev
-tar xzf mongo-c-driver-1.8.0.tar.gz
-cd mongo-c-driver-1.8.0
-./configure --disable-automatic-init-and-cleanup
-make
-sudo make install
-sudo ldconfig
+sudo yum -y install centos-release-scl
+sudo yum -y install devtoolset-7-gcc devtoolset-7-make
+```
+
+Start using software collections
+```bash
+scl enable devtoolset-7 bash
+gcc --version
+```
+
+Configure EPEL package and install mongo-c-driver. 
+```bash
+sudo yum -y install epel-release
+sudo yum -y install mongo-c-driver-devel
 ```
 
 Git clone and compile
@@ -86,15 +82,7 @@ acetcom@nextepc:~/nextepc$ make install
 
 We provide a program that checks whether the installation is correct. After running the wireshark, select `loopback` interface, filter `s1ap || diameter || gtpv2 || gtp` and run `./test/testepc`. You can see the virtually created packets. [[testepc.pcapng]](http://nextepc.org/static/pcapng/testepc.pcapng)
 
-Note that you should stop all nextepc daemons before running test program if you have already installed it with a package manage.
 ```bash
-(if nextepc-daemons are running)
-sudo systemctl stop nextepc-mmed
-sudo systemctl stop nextepc-sgwd
-sudo systemctl stop nextepc-pgwd
-sudo systemctl stop nextepc-hssd
-sudo systemctl stop nextepc-pcrfd
-
 acetcom@nextepc:~/nextepc$ ./test/testepc
 ```
 
@@ -114,6 +102,7 @@ NextEPC daemon v0.3.3 - Feb 11 2018 07:19:59
 
 When you run `nextepc-epcd`, all logs for MME, SGW, PGW, PCRF, and HSS are written to `nextepc.log`, and all settings are managed in one place for `nextepc.conf`. You can find the log/conf path at the beginning of running screen.
 
+#
 Sometimes, you may want to use newly updated source code.
 ```bash
 (Control-C kill nextepc-epcd)
@@ -129,15 +118,11 @@ acetcom@nextepc:~/nextepc$ ./nextepc-epcd
 
 ## Web User Interface
 
-To get the latest [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/), please visit the official Node.js website:
-[https://nodesjs.org/en/download/](https://nodesjs.org/en/download/).
-
-Or, you can install [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) with a package manager.
+Install [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) with a package manager.
 
 ```bash
-sudo apt-get -y install curl
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get -y install nodejs
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo yum -y install nodejs
 ```
 
 Install the dependencies to run WebUI
