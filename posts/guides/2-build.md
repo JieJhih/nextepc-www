@@ -27,7 +27,7 @@ sudo sh -c "echo 'net.ipv6.conf.all.disable_ipv6=0' >> /etc/sysctl.d/30-nextepc.
 sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
 ```
 
-To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change permission using `chmod 666 /dev/net/tun`.
+To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
 
 ```bash
 ls -al /dev/net/tun
@@ -91,7 +91,7 @@ sudo systemctl stop nextepc-pcrfd
 acetcom@nextepc:~/nextepc$ ./test/testepc
 ```
 
-We provide a convenient tool called `nextepc-epcd` for developers. This daemon includes both *MME*, *SGW*, *PGW*, *HSS*, and *PCRF*. So, instead of running all 5 daemons, you can just run `nextepc-epcd` in your development environment.
+It is a convenient tool called `nextepc-epcd` for developers. This daemon includes both *MME*, *SGW*, *PGW*, *HSS*, and *PCRF*. So, instead of running all 5 daemons, you can just run `nextepc-epcd` in your development environment.
 
 ```bash
 acetcom@nextepc:~/nextepc$ ./nextepc-epcd
@@ -105,7 +105,7 @@ NextEPC daemon v0.3.3 - Feb 11 2018 07:19:59
 ...
 ```
 
-When you run `nextepc-epcd`, all logs for MME, SGW, PGW, PCRF, and HSS are written to `nextepc.log`, and all settings are managed in one place for `nextepc.conf`. You can find the log and configuration paths at the beginning of running screen.
+When you run `nextepc-epcd`, all logs for MME, SGW, PGW, PCRF, and HSS are written to `nextepc.log`, and all settings are managed in one place for `nextepc.conf`. You can find the log/conf path at the beginning of running screen.
 
 Sometimes, you may want to use newly updated source code.
 ```bash

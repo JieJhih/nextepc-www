@@ -6,12 +6,12 @@ page: docs
 
 - v0.4.0 : 2018-Mar
     - VoLTE (Need to test with IMS)
+    - S10 interface between multiple MMEs.
     - CS Fallback, SRVCC
     - XOR, TUAK
 
 
 - Plan
-    - S10 interface between multiple MMEs.
     - Roaming
     - Design IPC between HSS/PCRF and Web User Interface.
     - WebSocket

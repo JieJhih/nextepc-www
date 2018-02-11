@@ -36,12 +36,12 @@ pgwtun    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
 The NextEPC service is registered in `systemd` environment, and is started automatically during the installation phase. The service names are *nextepc-mmed*, *nextepc-sgwd*, *nextepc-pgwd*, *nextepc-hssd*, and *nextepc-pcrfd*. You can use the `systemctl` command to control specific services.
 
 ```bash
-sudo systemctl status nextepc-mmed (Check the aliveness)
+sudo systemctl status nextepc-mmed (Check the service status)
 sudo systemctl stop nextepc-mmed (Stop the service)
 sudo systemctl disable nextepc-mmed (Will not be started after rebooting)
 sudo systemctl enable nextepc-mmed (Will be started after rebooting)
-sudo systemctl start nextepc-mmed (Start service)
-sudo systemctl restart nextepc-mmed (Stop and Start)
+sudo systemctl start nextepc-mmed (Start the service)
+sudo systemctl restart nextepc-mmed (Stop and start)
 ```
 
 
