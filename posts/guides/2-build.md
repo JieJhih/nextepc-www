@@ -23,7 +23,7 @@ Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you sh
 sysctl -n net.ipv6.conf.all.disable_ipv6
 
 (if the output is 0 and IPv6 is enabled, skip the followings)
-sudo sh -c "echo 'net.ipv6.conf.all.disable_ipv6=0' >> /etc/sysctl.d/30-nextepc.conf"
+sudo sh -c "echo 'net.ipv6.conf.all.disable_ipv6=0' > /etc/sysctl.d/30-nextepc.conf"
 sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
 ```
 
