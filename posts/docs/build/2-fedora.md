@@ -19,14 +19,6 @@ mkdir -p data/db
 mongod --dbpath data/db
 ```
 
-Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you should change the kernel configuration.
-```bash
-cat /proc/sys/net/ipv6/conf/all/disable_ipv6
-
-(if the output is 0 and IPv6 is enabled, skip the followings)
-sudo sh -c "echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6"
-```
-
 To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
 
 ```bash
@@ -36,12 +28,40 @@ sudo dnf -y install udev
 sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not running)
 ```
 
-Setup your network.
+Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you should change the kernel configuration.
 ```bash
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+(if the output is 0 and IPv6 is enabled, skip the followings)
+sudo sh -c "echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6"
+```
+
+Craete the TUN device. Interface name will be `pgwtun`.
+```
 sudo dnf -y install iproute
 sudo ip tuntap add name pgwtun mode tun
+ip link show
+```
+
+Then, you need to check *IPv6 Kernel Configuration*. Although you can skip this process, we recommend that you set this up to support IPv6-enabled UE.
+
+```bash
+sysctl -n net.ipv6.conf.pgwtun.disable_ipv6
+
+(if the output is 0 and IPv6 is enabled, skip the followings)
+sudo sh -c "echo 'net.ipv6.conf.pgwtun.disable_ipv6=0' > /etc/sysctl.d/30-nextepc.conf"
+sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
+```
+
+You are now ready to set the IP address on TUN device. If IPv6 is disabled for TUN device, please do not execute `sudo ip addr add cafe::1/64 dev pgwtun` from below.
+
+```bash
 sudo ip addr add 45.45.0.1/16 dev pgwtun
 sudo ip addr add cafe::1/64 dev pgwtun
+```
+
+Check the TUN(pgwtun) device again.
+```bash
 sudo ip link set pgwtun up
 ip link show
 ```
