@@ -4,7 +4,7 @@ order: 1
 page: guides
 ---
 
-This post will guide you on how to get installed **NextEPC** with your environment. To date, NextEPC has been tested on GNU/Linux distributions(Debian, Ubuntu, CentOS, Fedora, OpenSUSE), FreeBSD, and Mac OS X.
+This post will guide you on how to get installed **NextEPC** with your environment. To date, NextEPC has been tested on GNU/Linux distributions(Debian, Ubuntu, CentOS, Fedora), FreeBSD, and Mac OS X.
 
 
 
@@ -78,7 +78,7 @@ sudo rm -Rf /var/log/nextepc
 ```
 
 
-## CentOS, Fedora, OpenSUSE, FreeBSD, and Mac OS X
+## CentOS, Fedora, FreeBSD, and Mac OS X
 
 For these OS, you should build NextEPC from the code. First clone this [repository](https://github.com/acetcom/nextepc.git) and then follow instructions described in the [documentation](http://nextepc.org/docs/). 
 

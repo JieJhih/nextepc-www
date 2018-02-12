@@ -57,7 +57,7 @@ sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
 
 You are now ready to set the IP address on TUN device. If IPv6 is disabled for TUN device, please remove `Address=cafe::1/64` from below.
 
-```
+```bash
 sudo sh -c "cat << EOF > /etc/systemd/network/99-nextepc.network
 [Match]
 Name=pgwtun
