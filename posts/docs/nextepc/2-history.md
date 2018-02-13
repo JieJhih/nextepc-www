@@ -4,7 +4,8 @@ order: 12
 page: docs
 ---
 
-- 2018-Feb-11 : [v0.3.3](https://github.com/acetcom/nextepc/archive/v0.3.3.tar.gz)
+- 2018-Feb-13 : [v0.3.3](https://github.com/acetcom/nextepc/archive/v0.3.3.tar.gz)
+    - Docker support
     - Fix the BUG for MAC failure of authentication failure([Issue #17](https://github.com/acetcom/nextepc/issues/17) from [`razaborg`](https://github.com/razaborg))
 
 

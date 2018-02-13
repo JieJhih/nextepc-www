@@ -18,7 +18,7 @@ sudo apt-get -y install mongodb
 sudo systemctl start mongodb (if '/usr/bin/mongod' is not running)
 ```
 
-To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permssions do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
+To run NextEPC with least privilege, TUN device permission should be a `crw-rw-rw-`(666). Otherwise, you need to run nextepc daemon with root privilege. If the permission is not `crw-rw-rw-`(666), you may need to install `udev` package.  Nevertheless, if the permission do not change , you can run nextepc with root privileges or change the permission using `chmod 666 /dev/net/tun`.
 
 ```bash
 ls -al /dev/net/tun
