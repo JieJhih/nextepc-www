@@ -69,7 +69,7 @@ exec_cmd() {
 
 uninstall() {
 exec_cmd_nobail "deb-systemd-invoke stop nextepc-webui"
-exec_cmd_nobail "deb-systemd-invoke disable nextepc-webui"
+exec_cmd_nobail "systemctl disable nextepc-webui"
 exec_cmd_nobail "rm -f /lib/systemd/system/${PACKAGE}-webui.service"
 exec_cmd_nobail "systemctl daemon-reload"
 
@@ -140,8 +140,8 @@ RestartSec=2
 WantedBy=multi-user.target
 EOF"
 
-exec_cmd "systemctl daemon-reload"
-exec_cmd "deb-systemd-invoke enable nextepc-webui"
+exec_cmd_nobail "systemctl daemon-reload"
+exec_cmd "systemctl enable nextepc-webui"
 exec_cmd "deb-systemd-invoke start nextepc-webui"
 
 exec_cmd "rm -rf ./${PACKAGE}-${VERSION}"
