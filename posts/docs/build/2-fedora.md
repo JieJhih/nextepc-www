@@ -28,14 +28,6 @@ sudo dnf -y install udev
 sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not running)
 ```
 
-Next, you need to check *IPv6 Kernel Configuration*. If IPv6 is disabled, you should change the kernel configuration.
-```bash
-cat /proc/sys/net/ipv6/conf/all/disable_ipv6
-
-(if the output is 0 and IPv6 is enabled, skip the followings)
-sudo sh -c "echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6"
-```
-
 Craete the TUN device. Interface name will be `pgwtun`.
 ```
 sudo dnf -y install iproute

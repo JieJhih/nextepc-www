@@ -8,8 +8,6 @@ This guide is based on Ubuntu 14.04 (Trusty)
 
 ## Prerequisites
 
-NextEPC requires MongoDB and TUN device. If you have previously installed NextEPC according to the [Installation Guide](http://nextepc.org/guides/1-installation), they was configured at that time. So, you can skip this step.
-
 Install Mongo DB with Package Manager.
 ```bash
 sudo apt-get -y install mongodb
