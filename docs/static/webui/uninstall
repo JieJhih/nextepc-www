@@ -15,8 +15,8 @@ exec_cmd_nobail() {
 }
 
 uninstall() {
-exec_cmd_nobail "systemctl stop nextepc-webui"
-exec_cmd_nobail "systemctl disable nextepc-webui"
+exec_cmd_nobail "deb-systemd-invoke  stop nextepc-webui"
+exec_cmd_nobail "deb-systemd-invoke systemctl disable nextepc-webui"
 exec_cmd_nobail "rm -f /lib/systemd/system/nextepc-webui.service"
 exec_cmd_nobail "rm -rf /usr/lib/node_modules/nextepc"
 
