@@ -37,6 +37,11 @@ sudo sysctl -w net.inet.ip.forwarding=1
 
 ## MME, SGW, PGW, HSS, and PCRF
 
+It is assumed that the comand line tools are installed. This can be done executing
+```bash
+xcode-select --install
+```
+
 Install the depedencies for building the source
 ```bash
 sudo brew install mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml
