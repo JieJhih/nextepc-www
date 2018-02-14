@@ -44,7 +44,7 @@ xcode-select --install
 
 Install the depedencies for building the source
 ```bash
-sudo brew install mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml
+sudo brew install autoconf automake libtool mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml pkg-config
 ```
 
 Git clone and compile
