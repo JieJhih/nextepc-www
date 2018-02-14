@@ -30,10 +30,10 @@ sudo ifconfig lo0 alias 127.0.0.4 netmask 255.255.255.255
 sudo ifconfig lo0 alias 127.0.0.5 netmask 255.255.255.255
 ```
 
-Enable IP forwarding & Masquerading.
+Enable IP forwarding & Masquerading
 ```bash
 sudo sysctl -w net.inet.ip.forwarding=1
-sudo sh -c "echo 'nat on {en0} from 45.45.0.0/16 to any -> {en0}' >> /etc/pf.anchors/org.nextepc"
+sudo sh -c "echo 'nat on {en0} from 45.45.0.0/16 to any -> {en0}' > /etc/pf.anchors/org.nextepc"
 sudo pfctl -e -f /etc/pf.anchors/org.nextepc
 ```
 
