@@ -13,6 +13,8 @@ page: docs
 
 - Plan
     - Roaming
+    - Emergency Call
+    - ePDG Gateway
     - Design IPC between HSS/PCRF and Web User Interface.
     - WebSocket
     - OCS/OFCS
