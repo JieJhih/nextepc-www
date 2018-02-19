@@ -10,6 +10,7 @@ This guide is based on Ubuntu 14.04 (Trusty)
 
 Install Mongo DB with Package Manager.
 ```bash
+sudo apt-get update
 sudo apt-get -y install mongodb
 sudo systemctl start mongodb (if '/usr/bin/mongod' is not running)
 ```

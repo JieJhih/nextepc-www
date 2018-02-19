@@ -14,6 +14,7 @@ NextEPC requires MongoDB and TUN device. If you have previously installed NextEP
 
 Install Mongo DB with Package Manager.
 ```bash
+sudo apt-get update
 sudo apt-get -y install mongodb
 sudo systemctl start mongodb (if '/usr/bin/mongod' is not running)
 ```
