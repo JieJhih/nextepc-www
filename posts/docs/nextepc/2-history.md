@@ -4,6 +4,10 @@ order: 12
 page: docs
 ---
 
+- 2018-Feb-22 : [v0.3.4](https://github.com/acetcom/nextepc/archive/v0.3.4.tar.gz)
+    - Fix the BUG that SGW process is dead during paging process([Issue #18](https://github.com/acetcom/nextepc/issues/18) from [`jackson040407`](https://github.com/jackson040407))
+
+
 - 2018-Feb-13 : [v0.3.3](https://github.com/acetcom/nextepc/archive/v0.3.3.tar.gz)
     - Docker support ([Issue #16](https://github.com/acetcom/nextepc/issues/16) from [`amilenovic`](https://github.com/amilenovic))
     - Fix the BUG for MAC failure of authentication failure([Issue #17](https://github.com/acetcom/nextepc/issues/17) from [`razaborg`](https://github.com/razaborg))
