@@ -4,7 +4,7 @@ order: 24
 page: docs
 ---
 
-This guide is based on OS X El Capitan 10.11.6
+This guide is based on macOS High Sierra 10.13.3
 
 ## Prerequisites
 
