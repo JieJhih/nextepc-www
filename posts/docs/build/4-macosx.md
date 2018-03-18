@@ -10,7 +10,7 @@ This guide is based on OS X El Capitan 10.11.6
 
 Install Mongo DB with Package Manager.
 ```bash
-sudo brew install mongodb
+brew install mongodb
 ```
 
 Run MongoDB server.
@@ -46,7 +46,7 @@ xcode-select --install
 
 Install the depedencies for building the source
 ```bash
-sudo brew install autoconf automake libtool mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml pkg-config
+brew install autoconf automake libtool gnu-sed mongo-c-driver libusrsctp gnutls libgcrypt libidn libyaml pkg-config
 ```
 
 Git clone and compile
@@ -102,7 +102,7 @@ acetcom@nextepc:~/nextepc$ sudo ./nextepc-epcd
 Install [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) with a package manager.
 
 ```bash
-sudo brew install node
+brew install node
 ```
 
 Install the dependencies to run WebUI
