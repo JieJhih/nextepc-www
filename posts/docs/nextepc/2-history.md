@@ -4,6 +4,11 @@ order: 12
 page: docs
 ---
 
+- 2018-Mar-06 : [v0.3.5](https://github.com/acetcom/nextepc/archive/v0.3.5.tar.gz)
+    - Support Network Name([Pull Request #22](https://github.com/acetcom/nextepc/pull/22) from [`medeiros405`](https://github.com/medeiros405))
+    - Fix the BUG for security capabilities mismatch([Issue #27](https://github.com/acetcom/nextepc/issues/27) from [`wayne43290`](https://github.com/wayne43290))
+
+
 - 2018-Feb-22 : [v0.3.4](https://github.com/acetcom/nextepc/archive/v0.3.4.tar.gz)
     - Fix the BUG that SGW process is dead during paging process([Issue #18](https://github.com/acetcom/nextepc/issues/18) from [`jackson040407`](https://github.com/jackson040407))
 

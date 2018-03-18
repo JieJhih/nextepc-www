@@ -4,7 +4,7 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-Mar
+- v0.4.0 : 2018-Apr
     - VoLTE (Need to test with IMS)
     - S10 interface between multiple MMEs.
     - CS Fallback, SRVCC
