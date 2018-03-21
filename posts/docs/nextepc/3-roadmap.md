@@ -4,11 +4,10 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-Apr
+- v0.4.0 : 2018-May
     - VoLTE (Need to test with IMS)
     - S10 interface between multiple MMEs.
     - CS Fallback, SRVCC
-    - XOR, TUAK
 
 
 - Plan
@@ -24,3 +23,4 @@ page: docs
       * FreeBSD
       * Mac OS X
     - Manual for man/info
+    - XOR, TUAK

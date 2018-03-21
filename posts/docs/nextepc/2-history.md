@@ -4,6 +4,11 @@ order: 12
 page: docs
 ---
 
+- 2018-Mar-21 : [v0.3.6](https://github.com/acetcom/nextepc/archive/v0.3.6.tar.gz)
+    - Increase SCTP recv buffer : 2048->8192([Issue #35](https://github.com/acetcom/nextepc/issues/35) from [`EugeneBogush`](https://github.com/EugeneBogush))
+    - Support eNB/MME Configuration Transfer, ErrorIndication([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))
+
+
 - 2018-Mar-06 : [v0.3.5](https://github.com/acetcom/nextepc/archive/v0.3.5.tar.gz)
     - Support Network Name([Pull Request #22](https://github.com/acetcom/nextepc/pull/22) from [`medeiros405`](https://github.com/medeiros405))
     - Fix the BUG for security capabilities mismatch([Issue #27](https://github.com/acetcom/nextepc/issues/27) from [`wayne43290`](https://github.com/wayne43290))

@@ -26,20 +26,29 @@ sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not runni
 
 Write the configuration file for the TUN deivce.
 ```bash
-sudo sh -c "cat << EOF > /etc/systemd/network/99-nextepc.netdev
-[NetDev]
-Name=pgwtun
-Kind=tun
+sudo sh -c "cat << EOF > /etc/network/interface.d/nextepc
+auto pgwtun
+iface pgwtun inet static
+    address 45.45.0.1
+    netmask 255.255.0.0
+    pre-up ip tuntap add name pgwtun mode tun
+    post-down ip tuntap del name pgwtun mode tun
+iface pgwtun inet6 static
+    address cafe::1
+    netmask 64
 EOF"
+```
+
+For loading TUN configuration,
+```bash
+if ! grep "source-directory" /etc/network/interfaces | grep "/etc/network/interfaces.d" > /dev/null; then
+    echo "source-directory /etc/network/interfaces.d" >> /etc/network/interfaces
+fi
 ```
 
 Craete the TUN device. Interface name will be `pgwtun`.
 ```
-sudo systemctl enable systemd-networkd
-sudo systemctl restart systemd-networkd
-
-sudo apt-get -y install net-tools
-ifconfig pgwtun
+ifup pgwtun
 ```
 
 Then, you need to check *IPv6 Kernel Configuration*. Although you can skip this process, we recommend that you set this up to support IPv6-enabled UE.
@@ -50,24 +59,6 @@ sysctl -n net.ipv6.conf.pgwtun.disable_ipv6
 (if the output is 0 and IPv6 is enabled, skip the followings)
 sudo sh -c "echo 'net.ipv6.conf.pgwtun.disable_ipv6=0' > /etc/sysctl.d/30-nextepc.conf"
 sudo sysctl -p /etc/sysctl.d/30-nextepc.conf
-```
-
-You are now ready to set the IP address on TUN device. If IPv6 is disabled for TUN device, please remove `Address=cafe::1/64` from below.
-
-```bash
-sudo sh -c "cat << EOF > /etc/systemd/network/99-nextepc.network
-[Match]
-Name=pgwtun
-[Network]
-Address=45.45.0.1/16
-Address=cafe::1/64
-EOF"
-```
-
-Check the TUN(pgwtun) device again.
-```
-sudo systemctl restart systemd-networkd
-ifconfig pgwtun
 ```
 
 ## MME, SGW, PGW, HSS, and PCRF
