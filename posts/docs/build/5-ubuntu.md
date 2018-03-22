@@ -41,9 +41,9 @@ EOF"
 
 For loading TUN configuration,
 ```bash
-if ! grep "source-directory" /etc/network/interfaces | grep "/etc/network/interfaces.d" > /dev/null; then
+sudo sh -c 'if ! grep "source-directory" /etc/network/interfaces | grep "/etc/network/interfaces.d" > /dev/null; then
     echo "source-directory /etc/network/interfaces.d" >> /etc/network/interfaces
-fi
+fi'
 ```
 
 Craete the TUN device. Interface name will be `pgwtun`.
