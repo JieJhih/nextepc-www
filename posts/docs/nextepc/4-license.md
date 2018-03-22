@@ -24,7 +24,6 @@ The source code of **NextEPC** is licensed under the terms of the GNU Affero Gen
     - License : [BSD](http://lionet.info/asn1c/asn1c-license.txt)
     - Copyright (c) 2003-2017  Lev Walkin <vlm@lionet.info> and contributors.
     - [lib/s1ap](https://github.com/acetcom/nextepc/tree/master/lib/s1ap) based on this project.
-    - [lib/s1ap/support/asn1tostruct.py](https://github.com/acetcom/nextepc/tree/master/lib/s1ap/support/asn1tostruct.py) referred from [OAI](http://www.openairinterface.org/)
 
 
 - [lksctp-tools](http://lksctp.sourceforge.net/)
