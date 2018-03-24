@@ -59,7 +59,7 @@ If you have no NAT router, there is another option for you. `iptables` can solve
 
 ```bash
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o <interface-name> -j MASQUERADE
 sudo iptables -I INPUT -i pgwtun -j ACCEPT
 ```
 
