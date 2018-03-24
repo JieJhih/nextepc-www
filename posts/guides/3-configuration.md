@@ -22,7 +22,7 @@ Open `/etc/nextepc/mme.conf` file, and find an item in mme &rarr; s1ap. Please s
 mme:
     freeDiameter: mme.conf
     s1ap:
-      addr: <ip address>
+      addr: <IP address>
 ...
 ```
 
@@ -37,7 +37,7 @@ sgw:
     gtpc:
       addr: 127.0.0.2
     gtpu:
-      addr: <ip address>
+      addr: <IP address>
 ...
 ```
 
@@ -51,15 +51,15 @@ By default, a LTE UE will receive a IP address with the network address of 45.45
 Add a route of both 45.45.0.0/16 and cafe::0/64 to go the PGW IP address. For example, a command for Linux will be:
 
 ```bash
-sudo ip route add 45.45.0.0/16 via <PGW IP address>
-sudo ip route add cafe::0/64 via <PGW IP address>
+sudo ip route add 45.45.0.0/16 via <'PGW IP address'>
+sudo ip route add cafe::0/64 via <'PGW IP address'>
 ```
 
 If you have no NAT router, there is another option for you. `iptables` can solve the problem. You execute the following command in NextEPC installed host. Do not miss out on modifying your interface name(e.g `enp0s25`, `wls3`).
 
 ```bash
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
-sudo iptables -t nat -A POSTROUTING -o <interface-name> -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o <'interface-name'> -j MASQUERADE
 sudo iptables -I INPUT -i pgwtun -j ACCEPT
 ```
 
