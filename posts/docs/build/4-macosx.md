@@ -8,6 +8,11 @@ This guide is based on macOS High Sierra 10.13.3
 
 ## Prerequisites
 
+It is assumed that the Homebrew is installed. This can be done executing.
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
 Install Mongo DB with Package Manager.
 ```bash
 brew install mongodb
@@ -38,11 +43,6 @@ sudo pfctl -e -f /etc/pf.anchors/org.nextepc
 ```
 
 ## MME, SGW, PGW, HSS, and PCRF
-
-It is assumed that the comand line tools are installed. This can be done executing
-```bash
-xcode-select --install
-```
 
 Install the depedencies for building the source
 ```bash
