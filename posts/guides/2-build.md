@@ -37,7 +37,7 @@ Kind=tun
 EOF"
 ```
 
-Craete the TUN device. Interface name will be `pgwtun`.
+Create the TUN device. Interface name will be `pgwtun`.
 ```
 sudo systemctl enable systemd-networkd
 sudo systemctl restart systemd-networkd

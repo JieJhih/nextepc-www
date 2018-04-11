@@ -26,7 +26,7 @@ sudo yum -y install mongodb-org
 sudo systemctl start mongod (if '/usr/bin/mongod' is not running)
 ```
 
-Craete the TUN device. Interface name will be `pgwtun`.
+Create the TUN device. Interface name will be `pgwtun`.
 ```
 sudo yum -y install iproute
 sudo ip tuntap add name pgwtun mode tun
