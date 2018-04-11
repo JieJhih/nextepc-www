@@ -28,7 +28,7 @@ sudo dnf -y install udev
 sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not running)
 ```
 
-Craete the TUN device. Interface name will be `pgwtun`.
+Create the TUN device. Interface name will be `pgwtun`.
 ```
 sudo dnf -y install iproute
 sudo ip tuntap add name pgwtun mode tun

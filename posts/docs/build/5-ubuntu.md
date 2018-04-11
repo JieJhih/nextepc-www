@@ -46,7 +46,7 @@ sudo sh -c 'if ! grep "source-directory" /etc/network/interfaces | grep "/etc/ne
 fi'
 ```
 
-Craete the TUN device. Interface name will be `pgwtun`.
+Create the TUN device. Interface name will be `pgwtun`.
 ```
 ifup pgwtun
 ```
