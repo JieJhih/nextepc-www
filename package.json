@@ -1,6 +1,6 @@
 {
   "name": "nextepc-www",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "NextEPC Website",
   "main": "index.js",
   "repository": "https://github.com/acetcom/nextepc-www",
@@ -25,7 +25,7 @@
     "react-ga": "^2.3.5"
   },
   "devDependencies": {
-    "now": "^8.3.6",
+    "now": "^11.1.4",
     "webpack-bundle-analyzer": "^2.9.0"
   }
 }

@@ -4,6 +4,10 @@ order: 12
 page: docs
 ---
 
+- 2018-Apr-14 : [v0.3.7](https://github.com/acetcom/nextepc/archive/v0.3.7.tar.gz)
+    - S1AP supports Release 14.4.0
+
+
 - 2018-Mar-21 : [v0.3.6](https://github.com/acetcom/nextepc/archive/v0.3.6.tar.gz)
     - Increase SCTP recv buffer : 2048->8192([Issue #35](https://github.com/acetcom/nextepc/issues/35) from [`EugeneBogush`](https://github.com/EugeneBogush))
     - Support eNB/MME Configuration Transfer, ErrorIndication([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))

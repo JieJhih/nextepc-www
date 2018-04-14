@@ -4,13 +4,15 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-May
+- v0.4.0 : 2018-Jun
     - VoLTE (Need to test with IMS)
     - S10 interface between multiple MMEs.
     - CS Fallback, SRVCC
 
 
 - Plan
+    - NB-IoT
+    - eMBMS
     - Roaming
     - Emergency Call
     - ePDG Gateway
