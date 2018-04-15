@@ -82,3 +82,18 @@ For these OS, you should build NextEPC from the code. First clone this [reposito
 * ### [Fedora](http://nextepc.org/docs/build/2-fedora)
 * ### [FreeBSD](http://nextepc.org/docs/build/3-freebsd)
 * ### [Mac OS X](http://nextepc.org/docs/build/4-macosx)
+
+## openSUSE
+
+[Martin Hauke](https://build.opensuse.org/user/show/mnhauke) packaged NextEPC for openSUSE on [OBS](https://build.opensuse.org/package/show/home:mnhauke:nextepc/nextepc).
+
+openSUSE actually comes in 2 flavors:
+* stable and in some parts based on SLES (Leap)
+* rolling (Tumbleweed)
+
+openSUSE users can now run:
+```bash
+sudo zypper addrepo -f obs://home:mnhauke:nextepc home:mnhauke:nextepc
+sudo zypper install nextpepc
+sudo zypper install mongodb-server mongodb-shell
+```
