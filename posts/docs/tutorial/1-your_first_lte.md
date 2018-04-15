@@ -127,16 +127,16 @@ S1AP/GTP-C IP address, PLMN ID, TAC updated in the MME Configuration.
 - Change TAC : 7 (srsENB Default Value)
 
 ```yaml
-diff -u /etc/nextepc/mme.conf.old /etc/nextepc/mme.conf
+diff -u mme.conf.old mme.conf
 --- mme.conf.old	2018-04-15 18:28:31.000000000 +0900
-+++ mme.conf	2018-04-15 18:28:52.000000000 +0900
++++ mme.conf	2018-04-15 19:53:10.000000000 +0900
 @@ -14,18 +14,20 @@
  mme:
      freeDiameter: mme.conf
      s1ap:
-+      addr: 127.0.0.1
++      addr: 127.0.1.100
      gtpc:
-+      addr: 127.0.0.1
++      addr: 127.0.1.100
      gummei:
        plmn_id:
 -        mcc: 001
