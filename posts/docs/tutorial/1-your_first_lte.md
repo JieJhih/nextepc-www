@@ -8,7 +8,7 @@ _Your First LTE_ is the perfect starting point for learning to build your own LT
 
 ## 1. Prerequisites
 
-First, you have to prepare USRP B200/B210 to run srsENB and NextEPC testing. However, please keep in mind that you would still need a fairly high-end PC (at least dual-core i5, better quad-core i7) with USB 3.0 to attach the USRP B200/B210. 
+First, you have to prepare USRP B200/B210 to run srsENB. However, please keep in mind that you would still need a fairly high-end PC (at least dual-core i5, better quad-core i7) with USB 3.0 to attach the USRP B200/B210. 
 
 #
 Also, for USRP B200/B210 you will need a GPS antenna for clock synchronization. We think that you have a window near your desk where you can put the small GPS patch antenna. In our case, 1 or 2 meters antenna cable is used between desk/computer and the window.
@@ -17,7 +17,7 @@ Also, for USRP B200/B210 you will need a GPS antenna for clock synchronization. 
 For stable operation of USRP B200/B210, we used 10Mhz GPS-DO(GPS disciplined oscillator). Of course, a USIM card(sysmoUSIM-SJS1) was also inserted into the phone.
 
 #
-On our setup, USRP, GPS-DO, USIM, and Accessories(Cables, ..) was provided by [sysmocom](https://www.sysmocom.de/). Thanks in advance.
+On our setup, USRP, GPS-DO, USIM, and Accessories(Cables, ..) were provided by [sysmocom](https://www.sysmocom.de/). Thanks in advance.
 
 ## 2. Overall Physical Setup
 
@@ -45,7 +45,7 @@ Most Linux distributions provide UHD as part of their package management. On Deb
 sudo apt-get install libuhd-dev libuhd003 uhd-host
 ```
 
-After installing, you might want to download the FPGA images packages by running _uhd images downloader_ on the command line (the actual path may differ based on your installation):
+After installing, you need to download the FPGA images packages by running _uhd images downloader_ on the command line (the actual path may differ based on your installation):
 
 ```bash
 sudo /usr/lib/uhd/utils/uhd_images_downloader.py
@@ -102,8 +102,14 @@ IMSI    ICCID   ACC PIN1    PUK1    PIN2    PUK2    Ki  OPC ADM1    KIC1    KID1
 901700000017409 8988211000000174097 0200    3605    88246237    9911    70761954    73D16C657E8B434BCFCA74A5269728FE    D7B4CAA787118615B8B06E9A173346FB    19313880    FB0620A741AA4353513D9B0566F34FD1    2D67FB90F35F79C73BF379277C1516DF    28E86C6B000FE1E17387CAC3580AB150
 ```
 
-Using WebUI, you need to add a subscriber information. It will be running on http://localhost:3000.
+Using WebUI, you need to add a subscriber information. It will be running on http://localhost:3000. Login with the default account.
 
+```yaml
+Username : admin
+Password : 1423
+```
+
+And then, proceed the followings.
 - Go to Subscriber Menu.
 - Click `+` Button to add a new subscriber.
 - Fill the IMSI, security context(K, OPc).
@@ -121,33 +127,48 @@ S1AP/GTP-C IP address, PLMN ID, TAC updated in the MME Configuration.
 - Change TAC : 7 (srsENB Default Value)
 
 ```yaml
-diff /etc/nextepc/mme.conf.old /etc/nextepc/mme.conf
-16a17
->       addr: 127.0.1.100
-17a19
->       addr: 127.0.1.100
-20,21c22,23
-<         mcc: 001
-<         mnc: 01
----
->         mcc: 901
->         mnc: 70
-26,28c28,30
-<         mcc: 001
-<         mnc: 01
-<       tac: 12345
----
->         mcc: 901
->         mnc: 70
->       tac: 7
+diff -u /etc/nextepc/mme.conf.old /etc/nextepc/mme.conf
+--- mme.conf.old	2018-04-15 18:28:31.000000000 +0900
++++ mme.conf	2018-04-15 18:28:52.000000000 +0900
+@@ -14,18 +14,20 @@
+ mme:
+     freeDiameter: mme.conf
+     s1ap:
++      addr: 127.0.0.1
+     gtpc:
++      addr: 127.0.0.1
+     gummei:
+       plmn_id:
+-        mcc: 001
+-        mnc: 01
++        mcc: 901
++        mnc: 70
+       mme_gid: 2
+       mme_code: 1
+     tai:
+       plmn_id:
+-        mcc: 001
+-        mnc: 01
+-      tac: 12345
++        mcc: 901
++        mnc: 70
++      tac: 7
+     security:
+         integrity_order : [ EIA1, EIA2, EIA0 ]
+         ciphering_order : [ EEA0, EEA1, EEA2 ]
 ```
 
 GTP-U IP address updated in the SGW Configuration.
 - Add GTP-U address : 127.0.0.2 (Use Loopback Interface)
 ```yaml
-diff /etc/nextepc/sgw.conf.old /etc/nextepc/sgw.conf
-16a17
->       addr: 127.0.0.2
+diff -u /etc/nextepc/sgw.conf.old /etc/nextepc/sgw.conf
+--- sgw.conf.old	2018-04-15 18:30:25.000000000 +0900
++++ sgw.conf	2018-04-15 18:30:30.000000000 +0900
+@@ -14,3 +14,4 @@
+     gtpc:
+       addr: 127.0.0.2
+     gtpu:
++      addr: 127.0.0.2
 ```
 
 After changing conf files, please restart NextEPC daemons.
