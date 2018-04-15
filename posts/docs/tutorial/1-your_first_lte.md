@@ -8,7 +8,7 @@ _Your First LTE_ is the perfect starting point for learning to build your own LT
 
 ## 1. Prerequisites
 
-First, you have to prepare USRP B200/B210 to run srsENB and NextEPC testing. However, please keep in mind that you would still need a fairly high-end PC (at least dual-core i5, better quad-core i7) with USB 3.0 to attach the USRP B200. 
+First, you have to prepare USRP B200/B210 to run srsENB and NextEPC testing. However, please keep in mind that you would still need a fairly high-end PC (at least dual-core i5, better quad-core i7) with USB 3.0 to attach the USRP B200/B210. 
 
 #
 Also, for USRP B200/B210 you will need a GPS antenna for clock synchronization. We think that you have a window near your desk where you can put the small GPS patch antenna. In our case, 1 or 2 meters antenna cable is used between desk/computer and the window.
@@ -145,6 +145,7 @@ diff /etc/nextepc/mme.conf.old /etc/nextepc/mme.conf
 GTP-U IP address updated in the SGW Configuration.
 - Add GTP-U address : 127.0.0.2 (Use Loopback Interface)
 ```yaml
+diff /etc/nextepc/sgw.conf.old /etc/nextepc/sgw.conf
 16a17
 >       addr: 127.0.0.2
 ```
