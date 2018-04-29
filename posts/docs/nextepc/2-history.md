@@ -4,6 +4,10 @@ order: 12
 page: docs
 ---
 
+- 2018-Apr-29 : [v0.3.8](https://github.com/acetcom/nextepc/archive/v0.3.8.tar.gz)
+    - Fix the bug for indirect tunnel([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))
+
+
 - 2018-Apr-14 : [v0.3.7](https://github.com/acetcom/nextepc/archive/v0.3.7.tar.gz)
     - S1AP supports Release 14.4.0
 
