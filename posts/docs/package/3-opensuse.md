@@ -1,6 +1,6 @@
 ---
 title: openSUSE
-order: 26
+order: 23
 page: docs
 ---
 

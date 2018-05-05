@@ -1,6 +1,6 @@
 ---
 title: Your First LTE
-order: 31
+order: 41
 page: docs
 ---
 

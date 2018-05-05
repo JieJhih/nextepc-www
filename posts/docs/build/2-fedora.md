@@ -1,6 +1,6 @@
 ---
 title: Fedora
-order: 22
+order: 32
 page: docs
 ---
 

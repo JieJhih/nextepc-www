@@ -5,6 +5,7 @@ import { inCategory } from 'nextein/posts'
 
 export default ({ docs, post }) => {
   const nextepc = docs.filter(inCategory('docs/nextepc'))
+  const _package = docs.filter(inCategory('docs/package'))
   const build = docs.filter(inCategory('docs/build'))
   const tutorial = docs.filter(inCategory('docs/tutorial'))
   return (
@@ -19,6 +20,16 @@ export default ({ docs, post }) => {
           )
         })
       }
+      {_package.length && <Separator>Package</Separator>}
+      {
+        _package.map((doc, idx) => {
+          const { data } = doc
+          const active = post.data.url === data.url
+          return (
+            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
+          )
+        })
+      }      
       {build.length && <Separator>Build</Separator>}
       {
         build.map((doc, idx) => {

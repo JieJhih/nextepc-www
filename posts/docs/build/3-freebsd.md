@@ -1,6 +1,6 @@
 ---
 title: FreeBSD
-order: 23
+order: 33
 page: docs
 ---
 

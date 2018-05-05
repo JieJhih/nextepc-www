@@ -1,6 +1,6 @@
 ---
 title: Ubuntu (Trusty)
-order: 25
+order: 35
 page: docs
 ---
 

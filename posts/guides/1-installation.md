@@ -73,6 +73,13 @@ You may need to remove manually /var/log/nextepc unless it is empty.
 sudo rm -Rf /var/log/nextepc
 ```
 
+## openSUSE
+
+[Martin Hauke](https://build.opensuse.org/user/show/mnhauke) packaged NextEPC for openSUSE on [OBS](https://build.opensuse.org/package/show/home:mnhauke:nextepc/nextepc).
+
+* ### [Installation Guide](/docs/package/3-opensuse)
+
+<br/>
 
 ## CentOS, Fedora, FreeBSD, and Mac OS X
 
@@ -85,8 +92,3 @@ For these OS, you should build NextEPC from the code. First clone this [reposito
 
 <br/>
 
-## openSUSE
-
-[Martin Hauke](https://build.opensuse.org/user/show/mnhauke) packaged NextEPC for openSUSE on [OBS](https://build.opensuse.org/package/show/home:mnhauke:nextepc/nextepc).
-
-* ### [Installation Guide](/docs/build/6-opensuse)

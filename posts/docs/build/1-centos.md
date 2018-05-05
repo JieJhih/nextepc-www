@@ -1,6 +1,6 @@
 ---
 title: CentOS
-order: 21
+order: 31
 page: docs
 ---
 

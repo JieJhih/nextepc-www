@@ -1,6 +1,6 @@
 ---
 title: Mac OS X
-order: 24
+order: 34
 page: docs
 ---
 

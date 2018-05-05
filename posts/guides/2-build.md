@@ -6,7 +6,7 @@ page: guides
 
 Since NextEPC is an open source project, you can build and use this program directly from source code. If you have already installed it with a package manager, or are not interested in learning the source code, you can skip this guide and proceed to the next [configuration guide](http://nextepc.org/guides/3-configuration). 
 
-Note that this guide is based on Ubuntu 16.04.3(Zenial) Distribution.
+Note that this guide is based on Ubuntu 18.04 LTS(Bionic Beaver) Distribution.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ ifconfig pgwtun
 
 Install the depedencies for building the source
 ```bash
-sudo apt-get -y install autoconf libtool gcc pkg-config git flex bison libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev libyaml-dev
+sudo apt-get -y install autoconf libtool gcc pkg-config git flex bison libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libidn11-dev libmongoc-dev libbson-dev libyaml-dev
 ```
 
 Git clone and compile
