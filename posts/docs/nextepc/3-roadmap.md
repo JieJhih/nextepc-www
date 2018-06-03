@@ -4,15 +4,16 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-Jun
+- v0.4.0 : 2018-Aug
+    - XOR, TUAK
     - VoLTE (Need to test with IMS)
-    - S10 interface between multiple MMEs.
-    - CS Fallback, SRVCC
 
 
 - Plan
     - NB-IoT
     - eMBMS
+    - S10 interface between multiple MMEs.
+    - CS Fallback, SRVCC
     - Roaming
     - Emergency Call
     - ePDG Gateway
@@ -25,4 +26,3 @@ page: docs
       * FreeBSD
       * Mac OS X
     - Manual for man/info
-    - XOR, TUAK

@@ -4,6 +4,14 @@ order: 12
 page: docs
 ---
 
+- 2018-Jun-03 : [v0.3.9](https://github.com/acetcom/nextepc/archive/v0.3.8.tar.gz)
+    - Confirm with 36.412 requirement of SCTP stream id([Issue #54](https://github.com/acetcom/nextepc/issues/54) from [`brchiu`](https://github.com/brchiu))
+    - Fix the bug for tracking area update([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))
+    - Fix to set correct timezone in UE ([Pull request #61](https://github.com/acetcom/nextepc/pull/61) from [`medeiros405`](https://github.com/medeiros405))
+    - Fix to change MME's integrity order([Issue #64](https://github.com/acetcom/nextepc/issues/64) from [`kewinrausch`](https://github.com/kewinrausch))
+    - Support NAS encryption(EEA1/EEA2/EEA3)
+
+
 - 2018-Apr-29 : [v0.3.8](https://github.com/acetcom/nextepc/archive/v0.3.8.tar.gz)
     - Fix the bug for indirect tunnel([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))
 
