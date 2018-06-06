@@ -15,7 +15,7 @@ openSUSE actually comes in 2 flavors:
 openSUSE users can now run:
 ```bash
 sudo zypper addrepo -f obs://home:mnhauke:nextepc home:mnhauke:nextepc
-sudo zypper install nextpepc
+sudo zypper install nextepc
 sudo zypper install mongodb-server mongodb-shell
 ```
 
