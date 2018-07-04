@@ -1,29 +1,46 @@
 
 import React from 'react'
 import styled from 'react-emotion'
+import Link from 'nextein/link'
+import Head from 'next/head'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 
 import Github from './icons/github'
+
+NProgress.configure({
+  showSpinner: false
+})
+
+Router.onRouteChangeStart = (url) => {
+  NProgress.start()
+}
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 export default ({ title, showHome = false, ...props }) => {
   const isGuide = (title === 'guides')
   const isDoc = (title === 'documentation')
   return (
-    <Nav {...props}>
-      { title && <Title>NextEPC<Light>/{title}</Light></Title> }
-      { showHome && <Item href="/">Home</Item>}
-      <Item href="/guides" className={isGuide && 'active'}>Guides</Item>
-      <Item href="/docs" className={isDoc && 'active'}>Docs</Item>
-      <GithubLink href="https://github.com/acetcom/nextepc">
-        <Github fill="#c0c0c0" width="25"/>
-      </GithubLink>
-    </Nav>
+    <React.Fragment>
+      <Head><link rel='stylesheet' type='text/css' href='/static/nprogress.css' /></Head>
+      <Nav {...props} showHome={showHome}>
+        { title && <Title>NextEPC<Light>/{title}</Light></Title> }
+        { showHome && <Link href="/" passHref><Item>Home</Item></Link>}
+        <Link href="/guides" passHref><Item className={isGuide && 'active'} >Guides</Item></Link>
+        <Link href="/docs" passHref><Item className={isDoc && 'active'}>Docs</Item></Link>
+        <GithubLink href="https://github.com/acetcom/nextepc">
+          <Github fill="#c0c0c0" width="25" alt="Github"/>
+        </GithubLink>
+      </Nav>
+    </React.Fragment>
   )
 }
 
 const Nav = styled('nav')`
-  min-height: 60px;
+  min-height: 72px;
   display: flex;
-  padding-right: 30px;
+  padding: 0 1.8em;
   justify-content: flex-end;
   align-items: stretch;
   box-sizing: border-box;  
@@ -35,7 +52,11 @@ const Nav = styled('nav')`
     padding: 0 15px;
     color: #999;
     text-decoration: none;
+    &:last-child {
+      padding-right: 0;
+    }
   }
+  border-bottom: ${ ({ showHome }) => showHome ? '1px solid #eee' : '' }
 `
 
 const Item = styled('a')`
@@ -52,12 +73,10 @@ const Item = styled('a')`
     border-bottom: 3px solid #f63;
     border-top: 3px solid transparent;    
   }
-
 `
 
 const Title = styled('div')`
   font-size: 1.4em;
-  padding-left: 20px;
   margin-right: auto;
   color: #212121;
   font-weight: 400;

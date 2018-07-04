@@ -1,6 +1,7 @@
 
 import React from 'react'
 import styled from 'react-emotion'
+import Link from 'nextein/link'
 
 export default () => {
   return (
@@ -10,8 +11,8 @@ export default () => {
         <Title>Build your own LTE network easy</Title>
       </Main>
       <Actions>
-        <Button href="/guides">GET STARTED</Button>
-        <Secondary href="/docs" inverted>DOCS</Secondary>
+        <Link href="/guides" passHref><Button >GET STARTED</Button></Link>
+        <Link href="/docs" passHref><Secondary inverted>DOCS</Secondary></Link>
       </Actions>
     </Header>
   )
@@ -26,7 +27,6 @@ const Header = styled('header')`
   font-size: 2em;
   background: #f1f1f1;
   background-image: radial-gradient(circle at center, #fff 0%,  #e9e9e9 100%);
-  
 `
 
 const Main = styled('div')`
@@ -36,11 +36,14 @@ const Main = styled('div')`
   align-items: center;
 
 `
+const Hello = styled('div')`
+  font-size: 1.5em;
+  color: #999;
+`
 
 const Title = styled('h1')`
   padding: 10px;
-  font-weight: 200;
-  font-size: 1.5em;
+  font-weight: 100;
   border-bottom: 4px solid #f63;  
 `
 

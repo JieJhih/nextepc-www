@@ -6,9 +6,20 @@ import Github from './icons/github'
 export default () => {
   return (
     <Footer>
-      <Brand>NextEPC</Brand>
-      <Notice>&copy; 2017, 2018  - Sukchan Lee, Jinyoung Park, and Jihoon Brandon Lee</Notice>
-      <Notice><a href="mailto:brandon.jihoon@gmail.com">Contact Us</a></Notice>
+      <Grid>
+        <Brand>
+          NextEPC
+          <Notice>Copyright &copy; { new Date().getFullYear() } - Sukchan Lee, Jinyoung Park, and Jihoon Brandon Lee</Notice>
+        </Brand>
+        <SiteMap>
+          <a href="/">HOME</a>
+          <a href="/guides">GUIDES</a>
+          <a href="/docs">DOCS</a>
+        </SiteMap>
+        <Social>
+          <a href="https://github.com/acetcom/nextepc" target="_blank"><Github fill="#564949" width="35" alt="Github"/></a>
+        </Social>
+      </Grid>
       <BuiltWithLove />
     </Footer>
   )
@@ -16,7 +27,7 @@ export default () => {
 
 const BuiltWithLove = () => (
   <Built>
-    Built with <span>♥︎</span> and nextepc by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, and <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>
+    Built with <span>♥︎</span> and <span>nextein</span> by <a href="https://github.com/elmasse">/<span>elmasse</span></a>
   </Built>
 )
 
@@ -24,54 +35,80 @@ const Footer = styled('footer')`
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   background: #272121;
-  height: 120px;
-  padding-top: 20px;
-  > * {
-    padding-left: 20px;    
+  min-height: 250px;
+`
+
+const Grid = styled('div')`
+  display: flex;
+  flex: 1;
+  padding: 32px;
+  width: 900px;
+  margin: auto;
+`
+const SiteMap = styled('div')`
+  flex: 2;
+  padding: 1em 0;
+  border-top: 1px solid #564949;
+  & a {
+    display: block;
+    text-decoration: none;
+    padding: 2px 0;
+  }
+  & a:hover {
+    color: #f63;
   }
 `
 
 const Brand = styled('div')`
   color: #f63;
-  font-size: 1.8em
+  font-size: 2.5em;
+  margin-right: 2em;
 `
 
 const Notice = styled('div')`
-  font-size: .8em;
-  color: #564949;
-  padding-bottom: 20px;
+  font-size: 11px;
+  color: #f1f1f1;
+#  text-transform: uppercase;
+  letter-spacing: .06em;
 `
 
 const Social = styled('div')`
-  flex: 3;
-  font-size: .8em;
-  background-color: #131010;
-  padding-top: 10px;
-  align-items: flex-start;
+  flex: 1;
+  padding: 1em 0;
+  border-top: 1px solid #f63;
+  font-size: 2em;
+  font-weight: 300;
+  color: #f63;
   display: flex;
-  flex-direction: row;
-  
-  a:hover svg {
+  align-items: center;
+  justify-content: flex-end;
+  & a {
+    padding: 5px;
+  }
+
+  & a:hover svg {
     fill: #9a8888;
   }
 `
 
 const Built = styled('div')`
-background-color: #131010;
+  background-color: #131010;
 
-padding: 10px 0;
-align-self: stretch;
-text-align: center;
-font-size: .75em;
+  padding: 16px 0;
+  align-self: stretch;
+  text-align: center;
 
-&, a, a:visited, a:hover {
-  color: #564949;
-  text-decoration: none;
-}
+  font-size: .75em;
 
-span {
-  font-weight: 600;
-  color: #f63;    
-}
+  &, a, a:visited, a:hover {
+    color: #f1f1f1;
+    text-decoration: none;
+  }
+
+  span {
+    font-weight: 600;
+    color: #f63;    
+  }
 `
