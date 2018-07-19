@@ -70,10 +70,12 @@ sudo apt-get -y install git gcc flex bison make autoconf libtool pkg-config libs
 
 And then, compile and install Mongo C Driver like the followings.
 ```bash
-sudo apt-get -y install g++ libsasl2-dev
-tar xzf mongo-c-driver-1.8.0.tar.gz
-cd mongo-c-driver-1.8.0
-./configure --disable-automatic-init-and-cleanup
+wget https://github.com/mongodb/mongo-c-driver/releases/download/1.12.0/mongo-c-driver-1.12.0.tar.gz
+tar xzf mongo-c-driver-1.12.0.tar.gz
+cd mongo-c-driver-1.12.0
+mkdir cmake-build
+cd cmake-build
+cmake -DENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF ..
 make
 sudo make install
 sudo ldconfig
