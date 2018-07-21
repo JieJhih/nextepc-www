@@ -6,7 +6,7 @@ page: guides
 
 Since NextEPC is an open source project, you can build and use this program directly from source code. If you have already installed it with a package manager, or are not interested in learning the source code, you can skip this guide and proceed to the next [configuration guide](http://nextepc.org/guides/3-configuration). 
 
-Note that this guide is based on Ubuntu 18.04 LTS(Bionic Beaver) Distribution.
+Note that this guide is based on **Ubuntu 18.04(Bionic Beaver)** and **16.04(Zenial)** Distribution. To use _Ubuntu 14.04(Trusty)_, you must use [a different guide](/docs/build/5-ubuntu/).
 
 ## Prerequisites
 

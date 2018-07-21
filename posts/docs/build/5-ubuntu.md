@@ -4,7 +4,7 @@ order: 35
 page: docs
 ---
 
-This guide is based on Ubuntu 14.04 (Trusty)
+This guide is based on **Ubuntu 14.04(Trusty)** Distribution. To use _Ubuntu 18.04(Bionic Bearer)_ and _Ubuntu 16.04(Zenial)_, you must use [a different guide](/guides/2-build).
 
 ## Prerequisites
 
