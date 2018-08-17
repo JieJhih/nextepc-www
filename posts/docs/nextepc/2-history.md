@@ -4,7 +4,16 @@ order: 12
 page: docs
 ---
 
-- 2018-Jun-03 : [v0.3.9](https://github.com/acetcom/nextepc/archive/v0.3.8.tar.gz)
+- 2018-Aug-17 : [v0.3.10](https://github.com/acetcom/nextepc/archive/v0.3.10.tar.gz)
+    - Renew freeDiameter Certificate([Issue #93](https://github.com/acetcom/nextepc/issues/93) from [`Ravi-t`](https://github.com/Ravi-t))([Issue #94](https://github.com/acetcom/nextepc/issues/94) from [`hchenji`](https://github.com/hchenji))
+    - Fix TLV uint32 bug ([Pull request #73](https://github.com/acetcom/nextepc/pull/73) from [`giuliol`](https://github.com/giuliol))
+    - Add TRACE for IP address of connected UEs([Issue #71](https://github.com/acetcom/nextepc/issues/71) from [`pgupta408`](https://github.com/Ravi-t))
+    - Show reason string for YAML parser error([Issue #40](https://github.com/acetcom/nextepc/issues/40) from [`Raw1mage`](https://github.com/Raw1mage))
+    - Fix compile error for GCC 8.1
+    - Fix compile error for Mongo-C-Driver 1.11
+
+
+- 2018-Jun-03 : [v0.3.9](https://github.com/acetcom/nextepc/archive/v0.3.9.tar.gz)
     - Confirm with 36.412 requirement of SCTP stream id([Issue #54](https://github.com/acetcom/nextepc/issues/54) from [`brchiu`](https://github.com/brchiu))
     - Fix the bug for tracking area update([Issue #29](https://github.com/acetcom/nextepc/issues/29) from [`wayne43290`](https://github.com/wayne43290))
     - Fix to set correct timezone in UE ([Pull request #61](https://github.com/acetcom/nextepc/pull/61) from [`medeiros405`](https://github.com/medeiros405))

@@ -4,9 +4,9 @@ order: 13
 page: docs
 ---
 
-- v0.4.0 : 2018-Aug
-    - XOR, TUAK
+- v0.4.0 : 2018-Dec
     - VoLTE (Need to test with IMS)
+    - XOR, TUAK
 
 
 - Plan
