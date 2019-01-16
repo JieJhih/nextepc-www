@@ -26,7 +26,7 @@ sudo systemctl start systemd-udevd (if '/lib/systemd/systemd-udevd' is not runni
 
 Write the configuration file for the TUN deivce.
 ```bash
-sudo sh -c "cat << EOF > /etc/network/interface.d/nextepc
+sudo sh -c "cat << EOF > /etc/network/interfaces.d/nextepc
 auto pgwtun
 iface pgwtun inet static
     address 45.45.0.1

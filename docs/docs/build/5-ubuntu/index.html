@@ -12,7 +12,7 @@ sudo apt-get install udev
 sudo systemctl start systemd-udevd (if &#x27;/lib/systemd/systemd-udevd&#x27; is not running)
 </code></pre></pre>
 <p class="css-1jj8kkd ep4079u6">Write the configuration file for the TUN deivce.</p>
-<pre class="css-pz2czw ep4079u8"><pre><code class="language-bash">sudo sh -c &quot;cat &lt;&lt; EOF &gt; /etc/network/interface.d/nextepc
+<pre class="css-pz2czw ep4079u8"><pre><code class="language-bash">sudo sh -c &quot;cat &lt;&lt; EOF &gt; /etc/network/interfaces.d/nextepc
 auto pgwtun
 iface pgwtun inet static
     address 45.45.0.1
